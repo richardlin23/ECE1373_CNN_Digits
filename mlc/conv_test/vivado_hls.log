@@ -1,0 +1,97 @@
+================================================================
+  Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC
+  Version 2017.2
+  Build 1909853 on Thu Jun 15 18:55:24 MDT 2017
+  Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+================================================================
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Wilson' on host 'wilson24' (Windows NT_amd64 version 6.2) on Sun Apr 14 12:59:52 -0400 2019
+INFO: [HLS 200-10] In directory 'C:/Users/Wilson/Desktop/digital_soc_final/digital_soc_final/conv_test'
+INFO: [HLS 200-10] Opening project 'C:/Users/Wilson/Desktop/digital_soc_final/digital_soc_final/hls_proj/conv_proj'.
+INFO: [HLS 200-10] Adding design file '../conv_test/conv_layer.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/Wilson/Desktop/digital_soc_final/digital_soc_final/hls_proj/conv_proj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a200tsbg484-1'
+INFO: [HLS 200-10] Analyzing design file '../conv_test/conv_layer.cpp' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:24 . Memory (MB): peak = 98.215 ; gain = 48.539
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:25 . Memory (MB): peak = 98.238 ; gain = 48.563
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:27 . Memory (MB): peak = 101.680 ; gain = 52.004
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:27 . Memory (MB): peak = 103.992 ; gain = 54.316
+INFO: [XFORM 203-11] Balancing expressions in function 'conv_layer' (../conv_test/conv_layer.cpp:6)...7 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:29 . Memory (MB): peak = 127.457 ; gain = 77.781
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:29 . Memory (MB): peak = 128.230 ; gain = 78.555
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv_layer' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 30.486 seconds; current allocated memory: 84.154 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.643 seconds; current allocated memory: 85.004 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv_layer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/mem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/input_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/output_offset' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/od' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/ox' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/oy' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/id' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/ix' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/iy' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/s' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv_layer/k' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv_layer' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'input_offset', 'output_offset', 'b', 'od', 'ox', 'oy', 'id', 'ix', 'iy', 's' and 'k' to AXI-Lite port CTRL_BUS.
+INFO: [SYN 201-210] Renamed object name 'conv_layer_fadd_32ns_32ns_32_13_full_dsp' to 'conv_layer_fadd_3bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_fmul_32ns_32ns_32_8_max_dsp' to 'conv_layer_fmul_3cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'conv_layer_mul_32s_32s_32_7' to 'conv_layer_mul_32dEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_fadd_3bkb': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_fmul_3cud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'conv_layer_mul_32dEe': 9 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_layer'.
+INFO: [HLS 200-111]  Elapsed time: 0.949 seconds; current allocated memory: 86.905 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'conv_layer_mul_32dEe_MulnS_0'
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:14 ; elapsed = 00:00:39 . Memory (MB): peak = 134.074 ; gain = 84.398
+INFO: [SYSC 207-301] Generating SystemC RTL for conv_layer.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv_layer.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv_layer.
+INFO: [IMPL 213-8] Exporting RTL as an IP in IP-XACT.
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/Wilson/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+source run_ippack.tcl -notrace
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/Wilson/Desktop/digital_soc_final/digital_soc_final/hls_proj/conv_proj/solution1/impl/ip'
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 342.684 ; gain = 114.352
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'conv_layer_ap_fadd_11_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 372.496 ; gain = 29.813
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'conv_layer_ap_fadd_11_full_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'conv_layer_ap_fadd_11_full_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'conv_layer_ap_fmul_6_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+create_ip: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 382.555 ; gain = 2.422
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'conv_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'conv_layer_ap_fmul_6_max_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 14 13:01:35 2019...
+INFO: [HLS 200-112] Total elapsed time: 221.467 seconds; peak allocated memory: 86.905 MB.

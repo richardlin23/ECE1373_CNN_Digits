@@ -1,0 +1,316 @@
+#include "hw_hls_core.h"
+#include <stdint.h>
+#include <assert.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+#include <signal.h>
+#include <fcntl.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <sys/types.h>
+#include <sys/unistd.h>
+#include "math.h"
+// write data to DDR
+#include "params_conv1.h"
+#include "params_conv2.h"
+#include "params_fc1.h"
+#include "params_fc2.h"
+#include "input_image.h"
+#include "../video_demo.h"
+
+
+void write_reg(volatile void* map_base, int offset, int value)
+{
+  volatile void* virt_addr = (volatile void*)((char*)map_base + offset);
+  *((uint32_t *) virt_addr) = value;
+}
+
+int read_reg(volatile void* map_base, int offset)
+{
+  volatile void* virt_addr = (volatile void*)((char*)map_base + offset); 
+  return *((uint32_t *) virt_addr);
+}
+
+void write_data(volatile void* map_base, int offset, float value)
+{
+  volatile void* virt_addr = (volatile void*)((char*)map_base + offset);
+  *((float *) virt_addr) = value;
+}
+
+float read_data(volatile void* map_base, int offset)
+{
+  volatile void* virt_addr = (volatile void*)((char*)map_base + offset);
+  return *((float *) virt_addr);
+}
+
+void setup_fc_layer( volatile void* map_base, int target, int input_offset, int output_offset, int num_inputs, int num_outputs, int enable_relu )
+{
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_INPUT_OFFSET_DATA, input_offset);
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_OUTPUT_OFFSET_DATA, output_offset);
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_BATCH_SIZE_DATA, 1);
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_NUM_INPUTS_DATA, num_inputs);
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_NUM_OUTPUTS_DATA, num_outputs);
+	  write_reg(map_base, target + FC_CTRL_BUS_ADDR_ENABLE_RELU_DATA, enable_relu);
+}
+
+void setup_conv_layer( volatile void* map_base, int target, int input_offset, int output_offset, int id, int ix, int iy, int od, int ox, int oy, int s, int k )
+{
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_INPUT_OFFSET_DATA, input_offset);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_OUTPUT_OFFSET_DATA, output_offset);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_B_DATA, 1);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_OD_DATA, od);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_OX_DATA, ox);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_OY_DATA, oy);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_ID_DATA, id);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_IX_DATA, ix);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_IY_DATA, iy);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_S_DATA, s);
+	  write_reg(map_base, target + CONV_LAYER_CTRL_BUS_ADDR_K_DATA, k);
+}
+
+void setup_maxpool_layer( volatile void* map_base, int target, int input_offset, int output_offset, int id, int ix, int iy, int od, int ox, int oy, int s, int k  )
+{
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_INPUT_OFFSET_DATA, input_offset);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_OUTPUT_OFFSET_DATA, output_offset);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_B_DATA, 1);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_OD_DATA, od);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_OX_DATA, ox);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_OY_DATA, oy);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_ID_DATA, id);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_IX_DATA, ix);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_IY_DATA, iy);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_S_DATA, s);
+	  write_reg(map_base, target + MAXPOOL_LAYER_CTRL_BUS_ADDR_K_DATA, k);
+}
+
+void start_layer(volatile void* map_base, int target, int ap_start_addr){
+	write_reg(map_base, target + ap_start_addr, 0x1);
+}
+
+int poll_layer(volatile void* map_base, int target, int ap_status_addr) {
+	int status = (read_reg(map_base, target+ ap_status_addr) & 0xe);
+	return status;
+}
+
+void hw_fc_layer(int input_offset,         // offset of inputs
+				int output_offset,        // offset of outputs
+				const int num_inputs,     // number of input (dimensions)
+				const int num_outputs,    // number of output (dimensions)
+				const int enable_relu)    // flag to enable/disable ReLU
+{
+	
+  //Step 1:  Setup control registers  write the value into control bus
+	setup_fc_layer( 0x00000000, HW_FC_CTRL_ADDR, input_offset,  output_offset, num_inputs, num_outputs, enable_relu );
+
+  // Step 2: start layer processing
+	start_layer(0x0,HW_FC_CTRL_ADDR, FC_CTRL_BUS_ADDR_AP_CTRL);
+
+  //step 3: poll status and wait for processing to finish
+    while (poll_layer(0x0, HW_FC_CTRL_ADDR, FC_CTRL_BUS_ADDR_AP_CTRL) ==0){
+    	//printf("fc processing \n");
+    }
+    printf("done fc processing \n");
+}
+
+void hw_maxpool_layer(int input_offset,         // offset of inputs
+				int output_offset,        // offset of outputs
+				const int id,
+				const int ix,
+				const int iy,
+				const int od,
+				const int ox,
+				const int oy,
+				const int s,
+				const int k)    // flag to enable/disable ReLU
+{
+
+     //Step 1:  Setup control registers  write the value into control bus
+    setup_maxpool_layer( 0x00000000, HW_MAXPOOL_CTRL_ADDR, input_offset, output_offset, id, ix, iy, od, ox, oy, s, k);
+
+    // Step 2: start layer processing
+    start_layer(0x0,HW_MAXPOOL_CTRL_ADDR, MAXPOOL_LAYER_CTRL_BUS_ADDR_AP_CTRL);
+
+    //step 3: poll status and wait for processing to finish
+    while (poll_layer(0x0, HW_MAXPOOL_CTRL_ADDR, MAXPOOL_LAYER_CTRL_BUS_ADDR_AP_CTRL) ==0){
+    	//printf("maxpool processing \n");
+    }
+    printf("done maxpool processing \n");
+}
+
+void hw_conv_layer(int input_offset,         // offset of inputs
+				int output_offset,        // offset of outputs
+				const int id,
+				const int ix,
+				const int iy,
+				const int od,
+				const int ox,
+				const int oy,
+				const int s,
+				const int k)    // flag to enable/disable ReLU
+{
+
+     //Step 1:  Setup control registers  write the value into control bus
+    setup_conv_layer( 0x00000000, HW_CONV_CTRL_ADDR, input_offset, output_offset, id, ix, iy, od, ox, oy, s, k);
+
+    // Step 2: start layer processing
+    start_layer(0x0,HW_CONV_CTRL_ADDR, CONV_LAYER_CTRL_BUS_ADDR_AP_CTRL);
+
+    //step 3: poll status and wait for processing to finish
+    while (poll_layer(0x0, HW_CONV_CTRL_ADDR, CONV_LAYER_CTRL_BUS_ADDR_AP_CTRL) ==0){
+    	//printf("conv processing \n");
+    }
+    printf("done conv processing \n");
+}
+
+void hw_hls_core_processing ()
+{
+	printf("start hls core processing \n");
+	//layer 1 - conv_1
+	   hw_conv_layer(2415919104, 2432696320,  1, 28, 28, 20, 24, 24, 1, 5);     // input offset 0x90000000 , output offset 0x91000000
+	//layer 2 -pool_1
+	hw_maxpool_layer(2432696320, 2449573736, 20, 24, 24, 20, 12, 12, 2, 2);     // input offset 0x91000000 , output offset 0x92018768  (conv2 bias + weight = 50 + 25000 = 25050 = 0x18768)
+	//layer 3 - conv_2
+	   hw_conv_layer(2449473536, 2466250752, 20, 12, 12, 50,  8,  8, 1, 5);     // input offset 0x92000000 , output offset 0x93000000
+	//layer 4 -pool_2
+	hw_maxpool_layer(2466250752, 2484629968, 50,  8,  8, 50,  4,  4, 2, 2);     // input offset 0x93000000 , output offset 0x941871D0  (fc1 bias + weight =500 + 400000 = 400500 = 0x1871D0)
+	//layer 5 -fc_1
+	     hw_fc_layer(2483027968, 2499825224, 800, 500, 1);                      // input offset 0x94000000 , output offset 0x95004E48  (fc2 bias + weight =10 + 5000 = 5010 = 0x4E48)
+	//layer 6 -fc_2
+	     hw_fc_layer(2499805184, 2516582400, 500, 10, 0);                       // input offset 0x95000000 , output offset 0x96000000
+	printf("done hls core processing \n");
+}
+
+//softmax function
+int softmax(float *input_orig, int output_offset_ip2)
+{
+    int i;
+    int input_len = 10;
+    float m;
+    float input[10] = { };
+    //int maxValue_index = 0;
+    /* Find maximum value from input array */
+    m = input_orig[output_offset_ip2];
+    for (i = 1; i < input_len; i++) {
+        if (input_orig[output_offset_ip2+i] > m) {
+            m = input_orig[output_offset_ip2+i];
+			//maxValue_index = i;
+        }
+    }
+
+    float sum = 0;
+    for (i = 0; i < input_len; i++) {
+        sum += expf(input_orig[output_offset_ip2+i]-m);
+		input[i] = input_orig[output_offset_ip2+i];
+    }
+
+    for (i = 0; i < input_len; i++) {
+        input[i] = expf(input[i] - m - logf(sum));
+        printf("Num: %d, Prob: %.4f \n", i , input[i]);
+    }
+
+    float recognized_num_val = 0;
+    int recognized_num = 0;
+    for (i = 0; i < input_len; i++) {
+		if (input[i] > recognized_num_val){
+			recognized_num_val = input[i];
+			recognized_num = i;
+		}
+    }
+    return recognized_num;
+
+}
+
+/////write data to ddr
+void write_to_ddr(float *ddrMemory)
+{
+	int size_weight_conv1 = 500;
+	int size_bias_conv1 = 20;
+	int size_input = 784;
+
+	int size_weight_conv2 = 25000;
+	int size_bias_conv2 = 50;
+
+	int size_weight_fc1 = 400000;
+	int size_bias_fc1 = 500;
+
+	int size_weight_fc2 = 5000;
+	int size_bias_fc2 = 10;
+
+	int i = 0;
+	int i_addr = 0;
+
+	//writing CONV1 weight and bias
+	i_addr = CONV1_INPUT_OFFSET;
+	for (i = 0; i < size_weight_conv1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv1_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET] , ddrMemory[CONV1_INPUT_OFFSET] );
+
+	for (i = 0; i < size_bias_conv1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv1_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1] , ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1] );
+
+	for (i = 0; i < size_input; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = input_image2[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1+size_bias_conv1] , ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1+size_bias_conv1] );
+
+
+	//writing CONV2 weight and bias
+	i_addr = CONV2_INPUT_OFFSET;
+	for (i = 0; i < size_weight_conv2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv2_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_conv2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv2_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	//writing FC1 weight and bias
+	i_addr = FC1_INPUT_OFFSET;
+	for (i = 0; i < size_weight_fc1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc1_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_fc1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc1_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	//writing FC2 weight and bias
+	i_addr = FC2_INPUT_OFFSET;
+	for (i = 0; i < size_weight_fc2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc2_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_fc2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc2_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+
+}
+
+
+

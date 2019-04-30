@@ -1,0 +1,5 @@
+maxpool_layer_fcmbkb
+maxpool_layer_mulcud
+maxpool_layer_CTRL_BUS_s_axi
+maxpool_layer_mem_m_axi
+maxpool_layer

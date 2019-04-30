@@ -1,0 +1,109 @@
+// write data to DDR
+
+#include <stdio.h>
+#include "math.h"
+#include <stdlib.h>
+#include "params_conv1.h"
+#include "params_conv2.h"
+#include "params_fc1.h"
+#include "params_fc2.h"
+#include "write_to_ddr.h"
+#include "input_image.h"
+#include "input_image2.h"
+#include "../video_demo.h"
+
+
+/////write data to ddr
+void write_to_ddr()
+{
+    volatile float * ddrMemory = ( float*) 0x90000000;
+	int size_weight_conv1 = 500;
+	int size_bias_conv1 = 20;
+	int size_input = 784;
+
+	int size_weight_conv2 = 25000;
+	int size_bias_conv2 = 50;
+
+	int size_weight_fc1 = 400000;
+	int size_bias_fc1 = 500;
+
+	int size_weight_fc2 = 5000;
+	int size_bias_fc2 = 10;
+
+	int i = 0;
+	int i_addr = 0;
+	
+	//writing CONV1 weight and bias
+	i_addr = CONV1_INPUT_OFFSET;
+	for (i = 0; i < size_weight_conv1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv1_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET] , ddrMemory[CONV1_INPUT_OFFSET] );
+	
+	for (i = 0; i < size_bias_conv1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv1_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1] , ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1] );
+	
+	for (i = 0; i < size_input; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = input_image3[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+	//printf("addr: %x , data: %f \n", &ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1+size_bias_conv1] , ddrMemory[CONV1_INPUT_OFFSET+size_weight_conv1+size_bias_conv1] );
+
+
+	//writing CONV2 weight and bias
+	i_addr = CONV2_INPUT_OFFSET;
+	for (i = 0; i < size_weight_conv2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv2_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_conv2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = conv2_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	//writing FC1 weight and bias
+	i_addr = FC1_INPUT_OFFSET;
+	for (i = 0; i < size_weight_fc1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc1_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_fc1; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc1_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	//writing FC2 weight and bias
+	i_addr = FC2_INPUT_OFFSET;
+	for (i = 0; i < size_weight_fc2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc2_weights[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	for (i = 0; i < size_bias_fc2; i_addr++, i++)
+	{
+		ddrMemory[i_addr] = fc2_bias[i];
+		//printf("addr: %x , data: %f \n", &ddrMemory[i] , ddrMemory[i] );
+	}
+
+	
+}
+
+
+void read_input(float *dma_input)
+{
+
+}

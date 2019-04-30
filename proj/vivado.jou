@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Apr 28 15:01:40 2019
+# Process ID: 25164
+# Current directory: C:/Users/richa/Desktop/Nexys_Video_HDMI/proj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12632 C:\Users\richa\Desktop\Nexys_Video_HDMI\proj\HDMI.xpr
+# Log file: C:/Users/richa/Desktop/Nexys_Video_HDMI/proj/vivado.log
+# Journal file: C:/Users/richa/Desktop/Nexys_Video_HDMI/proj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/richa/Desktop/Nexys_Video_HDMI/proj/HDMI.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/richa/Desktop/Nexys_Video_HDMI/src/bd/hdmi/hdmi.bd}
+launch_sdk -workspace C:/Users/richa/Desktop/Nexys_Video_HDMI/proj/HDMI.sdk -hwspec C:/Users/richa/Desktop/Nexys_Video_HDMI/proj/HDMI.sdk/hdmi_wrapper.hdf
+open_bd_design {C:/Users/richa/Desktop/Nexys_Video_HDMI/src/bd/hdmi/hdmi.bd}

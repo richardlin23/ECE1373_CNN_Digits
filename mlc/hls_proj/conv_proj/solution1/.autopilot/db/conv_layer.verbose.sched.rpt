@@ -1,0 +1,1723 @@
+
+
+================================================================
+== Vivado HLS Report for 'conv_layer'
+================================================================
+* Date:           Sun Apr 14 13:00:22 2019
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        conv_proj
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a200tsbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.00|      3.50|        0.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |            Loop Name            | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1                         |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1                      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |  ++ Loop 1.1.1                  |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |   +++ Loop 1.1.1.1              |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |    ++++ Loop 1.1.1.1.1          |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |     +++++ Loop 1.1.1.1.1.1      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |      ++++++ Loop 1.1.1.1.1.1.1  |    ?|    ?|        33|          -|          -|     ?|    no    |
+        +---------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 97
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / (tmp_4)
+16 --> 
+	17  / (tmp_7)
+	15  / (!tmp_7)
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / (tmp_1)
+	16  / (!tmp_1)
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / (tmp_6)
+	24  / (!tmp_6)
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / (tmp_11)
+	90  / (!tmp_11)
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / (tmp_13)
+	41  / (!tmp_13)
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / (tmp_14)
+	49  / (!tmp_14)
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	78  / true
+78 --> 
+	79  / true
+79 --> 
+	80  / true
+80 --> 
+	81  / true
+81 --> 
+	82  / true
+82 --> 
+	83  / true
+83 --> 
+	84  / true
+84 --> 
+	85  / true
+85 --> 
+	86  / true
+86 --> 
+	87  / true
+87 --> 
+	88  / true
+88 --> 
+	89  / true
+89 --> 
+	57  / true
+90 --> 
+	91  / true
+91 --> 
+	92  / true
+92 --> 
+	93  / true
+93 --> 
+	94  / true
+94 --> 
+	95  / true
+95 --> 
+	96  / true
+96 --> 
+	97  / true
+97 --> 
+	32  / true
+* FSM state operations: 
+
+ <State 1>: 3.14ns
+ST_1: k_read (26)  [1/1] 1.00ns
+:13  %k_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %k) nounwind
+
+ST_1: s_read (27)  [1/1] 1.00ns
+:14  %s_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %s) nounwind
+
+ST_1: iy_read (28)  [1/1] 1.00ns
+:15  %iy_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %iy) nounwind
+
+ST_1: ix_read (29)  [1/1] 1.00ns
+:16  %ix_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %ix) nounwind
+
+ST_1: id_read (30)  [1/1] 1.00ns
+:17  %id_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %id) nounwind
+
+ST_1: oy_read (31)  [1/1] 1.00ns
+:18  %oy_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %oy) nounwind
+
+ST_1: ox_read (32)  [1/1] 1.00ns
+:19  %ox_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %ox) nounwind
+
+ST_1: od_read (33)  [1/1] 1.00ns
+:20  %od_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %od) nounwind
+
+ST_1: b_read (34)  [1/1] 1.00ns
+:21  %b_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %b) nounwind
+
+ST_1: output_offset_read (35)  [1/1] 1.00ns
+:22  %output_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %output_offset) nounwind
+
+ST_1: input_offset_read (36)  [1/1] 1.00ns
+:23  %input_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %input_offset) nounwind
+
+ST_1: tmp (50)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_1: tmp13 (51)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+ST_1: tmp_2 (53)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:55
+:40  %tmp_2 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %input_offset_read, i32 2, i32 31)
+
+ST_1: tmp_3 (55)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:82
+:42  %tmp_3 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %output_offset_read, i32 2, i32 31)
+
+
+ <State 2>: 2.14ns
+ST_2: tmp (50)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_2: tmp13 (51)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 3>: 2.14ns
+ST_3: tmp (50)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_3: tmp13 (51)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 4>: 2.14ns
+ST_4: tmp (50)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_4: tmp13 (51)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 5>: 2.14ns
+ST_5: tmp (50)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_5: tmp13 (51)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 6>: 2.14ns
+ST_6: tmp (50)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_6: tmp13 (51)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 7>: 2.14ns
+ST_7: tmp (50)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:37  %tmp = mul i32 %od_read, %k_read
+
+ST_7: tmp13 (51)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:38  %tmp13 = mul i32 %id_read, %k_read
+
+
+ <State 8>: 2.14ns
+ST_8: num_weights (52)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 9>: 2.14ns
+ST_9: num_weights (52)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 10>: 2.14ns
+ST_10: num_weights (52)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 11>: 2.14ns
+ST_11: num_weights (52)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 12>: 2.14ns
+ST_12: num_weights (52)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 13>: 2.14ns
+ST_13: num_weights (52)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+
+ <State 14>: 2.89ns
+ST_14: StgValue_131 (13)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(float* %mem) nounwind, !map !14
+
+ST_14: StgValue_132 (14)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32 %input_offset) nounwind, !map !18
+
+ST_14: StgValue_133 (15)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %output_offset) nounwind, !map !24
+
+ST_14: StgValue_134 (16)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %b) nounwind, !map !28
+
+ST_14: StgValue_135 (17)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i32 %od) nounwind, !map !32
+
+ST_14: StgValue_136 (18)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i32 %ox) nounwind, !map !36
+
+ST_14: StgValue_137 (19)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i32 %oy) nounwind, !map !40
+
+ST_14: StgValue_138 (20)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i32 %id) nounwind, !map !44
+
+ST_14: StgValue_139 (21)  [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i32 %ix) nounwind, !map !48
+
+ST_14: StgValue_140 (22)  [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i32 %iy) nounwind, !map !52
+
+ST_14: StgValue_141 (23)  [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i32 %s) nounwind, !map !56
+
+ST_14: StgValue_142 (24)  [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i32 %k) nounwind, !map !60
+
+ST_14: StgValue_143 (25)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @conv_layer_str) nounwind
+
+ST_14: StgValue_144 (37)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:21
+:24  call void (...)* @_ssdm_op_SpecInterface(float* %mem, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i64 2147483648, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_145 (38)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:23
+:25  call void (...)* @_ssdm_op_SpecInterface(i32 %b, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_146 (39)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:24
+:26  call void (...)* @_ssdm_op_SpecInterface(i32 %od, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_147 (40)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:25
+:27  call void (...)* @_ssdm_op_SpecInterface(i32 %ox, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_148 (41)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:26
+:28  call void (...)* @_ssdm_op_SpecInterface(i32 %oy, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_149 (42)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:27
+:29  call void (...)* @_ssdm_op_SpecInterface(i32 %id, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_150 (43)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:28
+:30  call void (...)* @_ssdm_op_SpecInterface(i32 %ix, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_151 (44)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:29
+:31  call void (...)* @_ssdm_op_SpecInterface(i32 %iy, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_152 (45)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:30
+:32  call void (...)* @_ssdm_op_SpecInterface(i32 %s, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_153 (46)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:31
+:33  call void (...)* @_ssdm_op_SpecInterface(i32 %k, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_154 (47)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:32
+:34  call void (...)* @_ssdm_op_SpecInterface(i32 %input_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_155 (48)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:33
+:35  call void (...)* @_ssdm_op_SpecInterface(i32 %output_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: StgValue_156 (49)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:34
+:36  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_14: num_weights (52)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:37
+:39  %num_weights = mul i32 %tmp13, %tmp
+
+ST_14: tmp_s (54)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:55
+:41  %tmp_s = zext i30 %tmp_2 to i32
+
+ST_14: tmp_5 (56)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:82
+:43  %tmp_5 = zext i30 %tmp_3 to i32
+
+ST_14: tmp16 (57)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:69
+:44  %tmp16 = add i32 %tmp_s, %od_read
+
+ST_14: StgValue_161 (58)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:43
+:45  br label %.loopexit20
+
+
+ <State 15>: 3.25ns
+ST_15: b_s (60)  [1/1] 0.00ns
+.loopexit20:0  %b_s = phi i31 [ 0, %0 ], [ %b_1, %.loopexit20.loopexit ]
+
+ST_15: phi_mul5 (61)  [1/1] 0.00ns
+.loopexit20:1  %phi_mul5 = phi i32 [ 0, %0 ], [ %next_mul6, %.loopexit20.loopexit ]
+
+ST_15: phi_mul7 (62)  [1/1] 0.00ns
+.loopexit20:2  %phi_mul7 = phi i32 [ 0, %0 ], [ %next_mul8, %.loopexit20.loopexit ]
+
+ST_15: next_mul8 (63)  [1/1] 2.89ns
+.loopexit20:3  %next_mul8 = add i32 %phi_mul7, %od_read
+
+ST_15: next_mul6 (64)  [1/1] 2.89ns
+.loopexit20:4  %next_mul6 = add i32 %phi_mul5, %id_read
+
+ST_15: b_cast (65)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:43
+.loopexit20:5  %b_cast = zext i31 %b_s to i32
+
+ST_15: tmp_4 (66)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:43
+.loopexit20:6  %tmp_4 = icmp slt i32 %b_cast, %b_read
+
+ST_15: b_1 (67)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:43
+.loopexit20:7  %b_1 = add i31 %b_s, 1
+
+ST_15: StgValue_170 (68)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:43
+.loopexit20:8  br i1 %tmp_4, label %.preheader2.preheader, label %9
+
+ST_15: StgValue_171 (70)  [1/1] 1.61ns
+.preheader2.preheader:0  br label %.preheader2
+
+ST_15: StgValue_172 (181)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:87
+:0  ret void
+
+
+ <State 16>: 3.25ns
+ST_16: o_d (72)  [1/1] 0.00ns
+.preheader2:0  %o_d = phi i31 [ %o_d_1, %.preheader2.loopexit ], [ 0, %.preheader2.preheader ]
+
+ST_16: phi_mul3 (73)  [1/1] 0.00ns
+.preheader2:1  %phi_mul3 = phi i32 [ %next_mul4, %.preheader2.loopexit ], [ 0, %.preheader2.preheader ]
+
+ST_16: next_mul4 (74)  [1/1] 2.89ns
+.preheader2:2  %next_mul4 = add i32 %phi_mul3, %id_read
+
+ST_16: o_d_cast (75)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader2:3  %o_d_cast = zext i31 %o_d to i32
+
+ST_16: tmp_7 (76)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader2:4  %tmp_7 = icmp slt i32 %o_d_cast, %od_read
+
+ST_16: o_d_1 (77)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader2:5  %o_d_1 = add i31 %o_d, 1
+
+ST_16: StgValue_179 (78)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader2:6  br i1 %tmp_7, label %.preheader1.preheader, label %.loopexit20.loopexit
+
+ST_16: tmp1 (83)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:3  %tmp1 = add i32 %o_d_cast, %phi_mul7
+
+ST_16: StgValue_181 (179)  [1/1] 0.00ns
+.loopexit20.loopexit:0  br label %.loopexit20
+
+
+ <State 17>: 2.14ns
+ST_17: tmp2 (84)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 18>: 2.14ns
+ST_18: tmp2 (84)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 19>: 2.14ns
+ST_19: tmp2 (84)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 20>: 2.14ns
+ST_20: tmp2 (84)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 21>: 2.14ns
+ST_21: tmp2 (84)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 22>: 2.85ns
+ST_22: tmp14 (80)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:55
+.preheader1.preheader:0  %tmp14 = add i32 %tmp_s, %o_d_cast
+
+ST_22: tmp2 (84)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+
+ <State 23>: 2.89ns
+ST_23: tmp_9 (81)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:55
+.preheader1.preheader:1  %tmp_9 = add i32 %tmp14, %num_weights
+
+ST_23: mem_addr (82)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:55
+.preheader1.preheader:2  %mem_addr = getelementptr inbounds float* %mem, i32 %tmp_9
+
+ST_23: tmp2 (84)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:46
+.preheader1.preheader:4  %tmp2 = mul i32 %tmp1, %oy_read
+
+ST_23: StgValue_192 (85)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader1.preheader:5  br label %.preheader1
+
+
+ <State 24>: 3.25ns
+ST_24: o_y (87)  [1/1] 0.00ns
+.preheader1:0  %o_y = phi i31 [ 0, %.preheader1.preheader ], [ %o_y_1, %.preheader1.loopexit ]
+
+ST_24: i_y (88)  [1/1] 0.00ns
+.preheader1:1  %i_y = phi i32 [ 0, %.preheader1.preheader ], [ %next_mul2, %.preheader1.loopexit ]
+
+ST_24: next_mul2 (89)  [1/1] 2.89ns
+.preheader1:2  %next_mul2 = add i32 %i_y, %s_read
+
+ST_24: o_y_cast (90)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader1:3  %o_y_cast = zext i31 %o_y to i32
+
+ST_24: tmp_1 (91)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader1:4  %tmp_1 = icmp slt i32 %o_y_cast, %oy_read
+
+ST_24: o_y_1 (92)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader1:5  %o_y_1 = add i31 %o_y, 1
+
+ST_24: StgValue_199 (93)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader1:6  br i1 %tmp_1, label %.preheader.preheader, label %.preheader2.loopexit
+
+ST_24: tmp7 (96)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:1  %tmp7 = add i32 %o_y_cast, %tmp2
+
+ST_24: StgValue_201 (177)  [1/1] 0.00ns
+.preheader2.loopexit:0  br label %.preheader2
+
+
+ <State 25>: 2.14ns
+ST_25: tmp12 (97)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 26>: 2.14ns
+ST_26: tmp12 (97)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 27>: 2.14ns
+ST_27: tmp12 (97)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 28>: 2.14ns
+ST_28: tmp12 (97)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 29>: 2.14ns
+ST_29: tmp12 (97)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 30>: 2.14ns
+ST_30: tmp12 (97)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+
+ <State 31>: 2.89ns
+ST_31: tmp_8 (95)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:63
+.preheader.preheader:0  %tmp_8 = add nsw i32 %i_y, %k_read
+
+ST_31: tmp12 (97)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:49
+.preheader.preheader:2  %tmp12 = mul i32 %tmp7, %ox_read
+
+ST_31: StgValue_210 (98)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:52
+.preheader.preheader:3  br label %.preheader
+
+
+ <State 32>: 3.50ns
+ST_32: o_x (100)  [1/1] 0.00ns
+.preheader:0  %o_x = phi i31 [ %o_x_1, %8 ], [ 0, %.preheader.preheader ]
+
+ST_32: i_x (101)  [1/1] 0.00ns
+.preheader:1  %i_x = phi i32 [ %next_mul, %8 ], [ 0, %.preheader.preheader ]
+
+ST_32: next_mul (102)  [1/1] 2.89ns
+.preheader:2  %next_mul = add i32 %i_x, %s_read
+
+ST_32: o_x_cast (103)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:52
+.preheader:3  %o_x_cast = zext i31 %o_x to i32
+
+ST_32: tmp_6 (104)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:52
+.preheader:4  %tmp_6 = icmp slt i32 %o_x_cast, %ox_read
+
+ST_32: o_x_1 (105)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:52
+.preheader:5  %o_x_1 = add i31 %o_x, 1
+
+ST_32: StgValue_217 (106)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:52
+.preheader:6  br i1 %tmp_6, label %1, label %.preheader1.loopexit
+
+ST_32: output_element_req (108)  [7/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+ST_32: StgValue_219 (175)  [1/1] 0.00ns
+.preheader1.loopexit:0  br label %.preheader1
+
+
+ <State 33>: 3.50ns
+ST_33: output_element_req (108)  [6/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 34>: 3.50ns
+ST_34: output_element_req (108)  [5/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 35>: 3.50ns
+ST_35: output_element_req (108)  [4/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 36>: 3.50ns
+ST_36: output_element_req (108)  [3/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 37>: 3.50ns
+ST_37: output_element_req (108)  [2/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 38>: 3.50ns
+ST_38: output_element_req (108)  [1/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 39>: 3.50ns
+ST_39: output_element (109)  [1/1] 3.50ns  loc: ../conv_test/conv_layer.cpp:55
+:1  %output_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 40>: 2.89ns
+ST_40: tmp_10 (110)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:66
+:2  %tmp_10 = add nsw i32 %i_x, %k_read
+
+ST_40: StgValue_228 (111)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:60
+:3  br label %.loopexit
+
+
+ <State 41>: 3.25ns
+ST_41: output_element1 (113)  [1/1] 0.00ns
+.loopexit:0  %output_element1 = phi float [ %output_element, %1 ], [ %output_element_1, %.loopexit.loopexit ]
+
+ST_41: i_d (114)  [1/1] 0.00ns
+.loopexit:1  %i_d = phi i31 [ 0, %1 ], [ %i_d_1, %.loopexit.loopexit ]
+
+ST_41: i_d_cast (115)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:60
+.loopexit:2  %i_d_cast = zext i31 %i_d to i32
+
+ST_41: tmp_11 (116)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:60
+.loopexit:3  %tmp_11 = icmp slt i32 %i_d_cast, %id_read
+
+ST_41: i_d_1 (117)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:60
+.loopexit:4  %i_d_1 = add i31 %i_d, 1
+
+ST_41: StgValue_234 (118)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:60
+.loopexit:5  br i1 %tmp_11, label %2, label %8
+
+ST_41: tmp4 (120)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:60
+:0  %tmp4 = add i32 %i_d_cast, %phi_mul5
+
+ST_41: tmp9 (122)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:60
+:2  %tmp9 = add i32 %i_d_cast, %phi_mul3
+
+ST_41: tmp15 (167)  [1/1] 2.85ns  loc: ../conv_test/conv_layer.cpp:82
+:0  %tmp15 = add i32 %tmp_5, %o_x_cast
+
+
+ <State 42>: 2.14ns
+ST_42: tmp5 (121)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_42: tmp10 (123)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 43>: 2.14ns
+ST_43: tmp5 (121)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_43: tmp10 (123)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 44>: 2.14ns
+ST_44: tmp5 (121)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_44: tmp10 (123)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 45>: 2.14ns
+ST_45: tmp5 (121)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_45: tmp10 (123)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 46>: 2.14ns
+ST_46: tmp5 (121)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_46: tmp10 (123)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 47>: 2.14ns
+ST_47: tmp5 (121)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_47: tmp10 (123)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+
+ <State 48>: 2.14ns
+ST_48: tmp5 (121)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_48: tmp10 (123)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:60
+:3  %tmp10 = mul i32 %tmp9, %k_read
+
+ST_48: StgValue_252 (124)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:63
+:4  br label %3
+
+
+ <State 49>: 3.25ns
+ST_49: output_element_1 (126)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:55
+:0  %output_element_1 = phi float [ %output_element1, %2 ], [ %output_element_2, %7 ]
+
+ST_49: i_y1 (127)  [1/1] 0.00ns
+:1  %i_y1 = phi i32 [ %i_y, %2 ], [ %i_y_1, %7 ]
+
+ST_49: iiy (128)  [1/1] 0.00ns
+:2  %iiy = phi i32 [ 0, %2 ], [ %iiy_1, %7 ]
+
+ST_49: tmp_13 (129)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp_13 = icmp slt i32 %i_y1, %tmp_8
+
+ST_49: iiy_1 (130)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:63
+:4  %iiy_1 = add nsw i32 %iiy, 1
+
+ST_49: StgValue_258 (131)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:63
+:5  br i1 %tmp_13, label %4, label %.loopexit.loopexit
+
+ST_49: tmp3 (133)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:63
+:0  %tmp3 = add i32 %i_y1, %tmp5
+
+ST_49: tmp8 (135)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:63
+:2  %tmp8 = add i32 %iiy, %tmp10
+
+ST_49: StgValue_261 (165)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 50>: 2.14ns
+ST_50: tmp6 (134)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_50: tmp11 (136)  [7/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 51>: 2.14ns
+ST_51: tmp6 (134)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_51: tmp11 (136)  [6/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 52>: 2.14ns
+ST_52: tmp6 (134)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_52: tmp11 (136)  [5/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 53>: 2.14ns
+ST_53: tmp6 (134)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_53: tmp11 (136)  [4/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 54>: 2.14ns
+ST_54: tmp6 (134)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_54: tmp11 (136)  [3/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 55>: 2.14ns
+ST_55: tmp6 (134)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_55: tmp11 (136)  [2/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+
+ <State 56>: 2.14ns
+ST_56: tmp6 (134)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_56: tmp11 (136)  [1/7] 2.14ns  loc: ../conv_test/conv_layer.cpp:63
+:3  %tmp11 = mul i32 %tmp8, %k_read
+
+ST_56: StgValue_276 (137)  [1/1] 1.61ns  loc: ../conv_test/conv_layer.cpp:66
+:4  br label %5
+
+
+ <State 57>: 3.25ns
+ST_57: output_element_2 (139)  [1/1] 0.00ns
+:0  %output_element_2 = phi float [ %output_element_1, %4 ], [ %output_element_3, %6 ]
+
+ST_57: i_x1 (140)  [1/1] 0.00ns
+:1  %i_x1 = phi i32 [ %i_x, %4 ], [ %i_x_1, %6 ]
+
+ST_57: iix (141)  [1/1] 0.00ns
+:2  %iix = phi i32 [ 0, %4 ], [ %iix_1, %6 ]
+
+ST_57: tmp_14 (142)  [1/1] 3.25ns  loc: ../conv_test/conv_layer.cpp:66
+:3  %tmp_14 = icmp slt i32 %i_x1, %tmp_10
+
+ST_57: iix_1 (143)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:66
+:4  %iix_1 = add nsw i32 %iix, 1
+
+ST_57: StgValue_282 (144)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:66
+:5  br i1 %tmp_14, label %6, label %7
+
+ST_57: tmp17 (146)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:69
+:0  %tmp17 = add i32 %tmp6, %i_x1
+
+ST_57: tmp19 (152)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:71
+:6  %tmp19 = add i32 %tmp_s, %iix
+
+ST_57: i_x_1 (159)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:66
+:13  %i_x_1 = add nsw i32 %i_x1, 1
+
+ST_57: i_y_1 (162)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:63
+:0  %i_y_1 = add nsw i32 %i_y1, 1
+
+ST_57: StgValue_287 (163)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:63
+:1  br label %3
+
+
+ <State 58>: 2.89ns
+ST_58: tmp18 (147)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:69
+:1  %tmp18 = add i32 %tmp17, %num_weights
+
+ST_58: tmp_16 (153)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:71
+:7  %tmp_16 = add i32 %tmp19, %tmp11
+
+
+ <State 59>: 2.89ns
+ST_59: tmp_15 (148)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:69
+:2  %tmp_15 = add i32 %tmp18, %tmp16
+
+
+ <State 60>: 3.50ns
+ST_60: mem_addr_2 (149)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:69
+:3  %mem_addr_2 = getelementptr inbounds float* %mem, i32 %tmp_15
+
+ST_60: input_element_req (150)  [7/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 61>: 3.50ns
+ST_61: input_element_req (150)  [6/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_61: mem_addr_3 (154)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:71
+:8  %mem_addr_3 = getelementptr inbounds float* %mem, i32 %tmp_16
+
+ST_61: weight_element_req (155)  [7/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 62>: 3.50ns
+ST_62: input_element_req (150)  [5/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_62: weight_element_req (155)  [6/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 63>: 3.50ns
+ST_63: input_element_req (150)  [4/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_63: weight_element_req (155)  [5/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 64>: 3.50ns
+ST_64: input_element_req (150)  [3/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_64: weight_element_req (155)  [4/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 65>: 3.50ns
+ST_65: input_element_req (150)  [2/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_65: weight_element_req (155)  [3/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 66>: 3.50ns
+ST_66: input_element_req (150)  [1/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+ST_66: weight_element_req (155)  [2/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 67>: 3.50ns
+ST_67: input_element (151)  [1/1] 3.50ns  loc: ../conv_test/conv_layer.cpp:69
+:5  %input_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr_2) nounwind
+
+ST_67: weight_element_req (155)  [1/7] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 68>: 3.50ns
+ST_68: weight_element (156)  [1/1] 3.50ns  loc: ../conv_test/conv_layer.cpp:71
+:10  %weight_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr_3) nounwind
+
+
+ <State 69>: 2.65ns
+ST_69: tmp_17 (157)  [8/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 70>: 2.65ns
+ST_70: tmp_17 (157)  [7/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 71>: 2.65ns
+ST_71: tmp_17 (157)  [6/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 72>: 2.65ns
+ST_72: tmp_17 (157)  [5/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 73>: 2.65ns
+ST_73: tmp_17 (157)  [4/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 74>: 2.65ns
+ST_74: tmp_17 (157)  [3/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 75>: 2.65ns
+ST_75: tmp_17 (157)  [2/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 76>: 2.65ns
+ST_76: tmp_17 (157)  [1/8] 2.65ns  loc: ../conv_test/conv_layer.cpp:73
+:11  %tmp_17 = fmul float %input_element, %weight_element
+
+
+ <State 77>: 3.30ns
+ST_77: output_element_3 (158)  [13/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 78>: 3.30ns
+ST_78: output_element_3 (158)  [12/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 79>: 3.30ns
+ST_79: output_element_3 (158)  [11/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 80>: 3.30ns
+ST_80: output_element_3 (158)  [10/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 81>: 3.30ns
+ST_81: output_element_3 (158)  [9/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 82>: 3.30ns
+ST_82: output_element_3 (158)  [8/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 83>: 3.30ns
+ST_83: output_element_3 (158)  [7/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 84>: 3.30ns
+ST_84: output_element_3 (158)  [6/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 85>: 3.30ns
+ST_85: output_element_3 (158)  [5/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 86>: 3.30ns
+ST_86: output_element_3 (158)  [4/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 87>: 3.30ns
+ST_87: output_element_3 (158)  [3/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 88>: 3.30ns
+ST_88: output_element_3 (158)  [2/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+
+ <State 89>: 3.30ns
+ST_89: output_element_3 (158)  [1/13] 3.30ns  loc: ../conv_test/conv_layer.cpp:73
+:12  %output_element_3 = fadd float %output_element_2, %tmp_17
+
+ST_89: StgValue_330 (160)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:66
+:14  br label %5
+
+
+ <State 90>: 2.89ns
+ST_90: tmp_12 (168)  [1/1] 2.89ns  loc: ../conv_test/conv_layer.cpp:82
+:1  %tmp_12 = add i32 %tmp15, %tmp12
+
+
+ <State 91>: 3.50ns
+ST_91: mem_addr_1 (169)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:82
+:2  %mem_addr_1 = getelementptr inbounds float* %mem, i32 %tmp_12
+
+ST_91: mem_addr_1_req (170)  [1/1] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:3  %mem_addr_1_req = call i1 @_ssdm_op_WriteReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 92>: 3.50ns
+ST_92: StgValue_334 (171)  [1/1] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:4  call void @_ssdm_op_Write.m_axi.floatP(float* %mem_addr_1, float %output_element1, i4 -1) nounwind
+
+
+ <State 93>: 3.50ns
+ST_93: mem_addr_1_resp (172)  [5/5] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:5  %mem_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_1) nounwind
+
+
+ <State 94>: 3.50ns
+ST_94: mem_addr_1_resp (172)  [4/5] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:5  %mem_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_1) nounwind
+
+
+ <State 95>: 3.50ns
+ST_95: mem_addr_1_resp (172)  [3/5] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:5  %mem_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_1) nounwind
+
+
+ <State 96>: 3.50ns
+ST_96: mem_addr_1_resp (172)  [2/5] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:5  %mem_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_1) nounwind
+
+
+ <State 97>: 3.50ns
+ST_97: mem_addr_1_resp (172)  [1/5] 3.50ns  loc: ../conv_test/conv_layer.cpp:82
+:5  %mem_addr_1_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_1) nounwind
+
+ST_97: StgValue_340 (173)  [1/1] 0.00ns  loc: ../conv_test/conv_layer.cpp:52
+:6  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4ns, clock uncertainty: 0.5ns.
+
+ <State 1>: 3.14ns
+The critical path consists of the following:
+	s_axi read on port 'k' [26]  (1 ns)
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 2>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 3>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 4>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 5>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 6>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 7>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp', ../conv_test/conv_layer.cpp:37) [50]  (2.14 ns)
+
+ <State 8>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 9>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 10>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 11>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 12>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 13>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../conv_test/conv_layer.cpp:37) [52]  (2.14 ns)
+
+ <State 14>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp16', ../conv_test/conv_layer.cpp:69) [57]  (2.89 ns)
+
+ <State 15>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('b_') with incoming values : ('b_', ../conv_test/conv_layer.cpp:43) [60]  (0 ns)
+	'icmp' operation ('tmp_4', ../conv_test/conv_layer.cpp:43) [66]  (3.25 ns)
+
+ <State 16>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o_d') with incoming values : ('o_d', ../conv_test/conv_layer.cpp:46) [72]  (0 ns)
+	'icmp' operation ('tmp_7', ../conv_test/conv_layer.cpp:46) [76]  (3.25 ns)
+
+ <State 17>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp2', ../conv_test/conv_layer.cpp:46) [84]  (2.14 ns)
+
+ <State 18>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp2', ../conv_test/conv_layer.cpp:46) [84]  (2.14 ns)
+
+ <State 19>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp2', ../conv_test/conv_layer.cpp:46) [84]  (2.14 ns)
+
+ <State 20>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp2', ../conv_test/conv_layer.cpp:46) [84]  (2.14 ns)
+
+ <State 21>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp2', ../conv_test/conv_layer.cpp:46) [84]  (2.14 ns)
+
+ <State 22>: 2.85ns
+The critical path consists of the following:
+	'add' operation ('tmp14', ../conv_test/conv_layer.cpp:55) [80]  (2.85 ns)
+
+ <State 23>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_9', ../conv_test/conv_layer.cpp:55) [81]  (2.89 ns)
+
+ <State 24>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o_y') with incoming values : ('o_y', ../conv_test/conv_layer.cpp:49) [87]  (0 ns)
+	'icmp' operation ('tmp_1', ../conv_test/conv_layer.cpp:49) [91]  (3.25 ns)
+
+ <State 25>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 26>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 27>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 28>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 29>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 30>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp12', ../conv_test/conv_layer.cpp:49) [97]  (2.14 ns)
+
+ <State 31>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_8', ../conv_test/conv_layer.cpp:63) [95]  (2.89 ns)
+
+ <State 32>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 33>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 34>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 35>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 36>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 37>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 38>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:55) [108]  (3.5 ns)
+
+ <State 39>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../conv_test/conv_layer.cpp:55) [109]  (3.5 ns)
+
+ <State 40>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_10', ../conv_test/conv_layer.cpp:66) [110]  (2.89 ns)
+
+ <State 41>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_d') with incoming values : ('i_d', ../conv_test/conv_layer.cpp:60) [114]  (0 ns)
+	'icmp' operation ('tmp_11', ../conv_test/conv_layer.cpp:60) [116]  (3.25 ns)
+
+ <State 42>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 43>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 44>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 45>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 46>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 47>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 48>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../conv_test/conv_layer.cpp:60) [121]  (2.14 ns)
+
+ <State 49>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_y') with incoming values : ('next_mul2') ('i_y', ../conv_test/conv_layer.cpp:63) [127]  (0 ns)
+	'icmp' operation ('tmp_13', ../conv_test/conv_layer.cpp:63) [129]  (3.25 ns)
+
+ <State 50>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 51>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 52>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 53>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 54>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 55>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 56>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../conv_test/conv_layer.cpp:63) [134]  (2.14 ns)
+
+ <State 57>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_x') with incoming values : ('next_mul') ('i_x', ../conv_test/conv_layer.cpp:66) [140]  (0 ns)
+	'icmp' operation ('tmp_14', ../conv_test/conv_layer.cpp:66) [142]  (3.25 ns)
+
+ <State 58>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp18', ../conv_test/conv_layer.cpp:69) [147]  (2.89 ns)
+
+ <State 59>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_15', ../conv_test/conv_layer.cpp:69) [148]  (2.89 ns)
+
+ <State 60>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_2', ../conv_test/conv_layer.cpp:69) [149]  (0 ns)
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 61>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 62>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 63>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 64>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 65>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 66>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:69) [150]  (3.5 ns)
+
+ <State 67>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../conv_test/conv_layer.cpp:69) [151]  (3.5 ns)
+
+ <State 68>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../conv_test/conv_layer.cpp:71) [156]  (3.5 ns)
+
+ <State 69>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 70>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 71>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 72>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 73>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 74>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 75>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 76>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_17', ../conv_test/conv_layer.cpp:73) [157]  (2.65 ns)
+
+ <State 77>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 78>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 79>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 80>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 81>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 82>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 83>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 84>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 85>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 86>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 87>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 88>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 89>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../conv_test/conv_layer.cpp:73) [158]  (3.3 ns)
+
+ <State 90>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_12', ../conv_test/conv_layer.cpp:82) [168]  (2.89 ns)
+
+ <State 91>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_1', ../conv_test/conv_layer.cpp:82) [169]  (0 ns)
+	bus request on port 'mem' (../conv_test/conv_layer.cpp:82) [170]  (3.5 ns)
+
+ <State 92>: 3.5ns
+The critical path consists of the following:
+	bus write on port 'mem' (../conv_test/conv_layer.cpp:82) [171]  (3.5 ns)
+
+ <State 93>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../conv_test/conv_layer.cpp:82) [172]  (3.5 ns)
+
+ <State 94>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../conv_test/conv_layer.cpp:82) [172]  (3.5 ns)
+
+ <State 95>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../conv_test/conv_layer.cpp:82) [172]  (3.5 ns)
+
+ <State 96>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../conv_test/conv_layer.cpp:82) [172]  (3.5 ns)
+
+ <State 97>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../conv_test/conv_layer.cpp:82) [172]  (3.5 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

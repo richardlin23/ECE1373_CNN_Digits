@@ -1,0 +1,1077 @@
+
+
+================================================================
+== Vivado HLS Report for 'maxpool_layer'
+================================================================
+* Date:           Sun Mar 31 17:02:37 2019
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        maxpool_proj
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a200tsbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.00|      3.50|        0.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |          Loop Name          | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1                     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1                  |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |  ++ Loop 1.1.1              |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |   +++ Loop 1.1.1.1          |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |    ++++ Loop 1.1.1.1.1      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |     +++++ Loop 1.1.1.1.1.1  |    ?|    ?|        16|          -|          -|     ?|    no    |
+        +-----------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 51
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (tmp_2)
+3 --> 
+	4  / (tmp_5)
+	2  / (!tmp_5)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / (tmp_9)
+	3  / (!tmp_9)
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / (tmp_6)
+	11  / (!tmp_6)
+20 --> 
+	21  / (tmp_10)
+	44  / (!tmp_10)
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / (tmp_13)
+	20  / (!tmp_13)
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	28  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	19  / true
+* FSM state operations: 
+
+ <State 1>: 1.61ns
+ST_1: StgValue_52 (13)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(float* %mem) nounwind, !map !20
+
+ST_1: StgValue_53 (14)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32 %input_offset) nounwind, !map !24
+
+ST_1: StgValue_54 (15)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %output_offset) nounwind, !map !30
+
+ST_1: StgValue_55 (16)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %b) nounwind, !map !34
+
+ST_1: StgValue_56 (17)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i32 %od) nounwind, !map !38
+
+ST_1: StgValue_57 (18)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i32 %ox) nounwind, !map !42
+
+ST_1: StgValue_58 (19)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i32 %oy) nounwind, !map !46
+
+ST_1: StgValue_59 (20)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecBitsMap(i32 %id) nounwind, !map !50
+
+ST_1: StgValue_60 (21)  [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i32 %ix) nounwind, !map !54
+
+ST_1: StgValue_61 (22)  [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap(i32 %iy) nounwind, !map !58
+
+ST_1: StgValue_62 (23)  [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i32 %s) nounwind, !map !62
+
+ST_1: StgValue_63 (24)  [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecBitsMap(i32 %k) nounwind, !map !66
+
+ST_1: StgValue_64 (25)  [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecTopModule([14 x i8]* @maxpool_layer_str) nounwind
+
+ST_1: k_read (26)  [1/1] 1.00ns
+:13  %k_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %k) nounwind
+
+ST_1: s_read (27)  [1/1] 1.00ns
+:14  %s_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %s) nounwind
+
+ST_1: iy_read (28)  [1/1] 1.00ns
+:15  %iy_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %iy) nounwind
+
+ST_1: ix_read (29)  [1/1] 1.00ns
+:16  %ix_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %ix) nounwind
+
+ST_1: id_read (30)  [1/1] 1.00ns
+:17  %id_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %id) nounwind
+
+ST_1: oy_read (31)  [1/1] 1.00ns
+:18  %oy_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %oy) nounwind
+
+ST_1: ox_read (32)  [1/1] 1.00ns
+:19  %ox_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %ox) nounwind
+
+ST_1: od_read (33)  [1/1] 1.00ns
+:20  %od_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %od) nounwind
+
+ST_1: b_read (34)  [1/1] 1.00ns
+:21  %b_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %b) nounwind
+
+ST_1: output_offset_read (35)  [1/1] 1.00ns
+:22  %output_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %output_offset) nounwind
+
+ST_1: input_offset_read (36)  [1/1] 1.00ns
+:23  %input_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %input_offset) nounwind
+
+ST_1: StgValue_76 (37)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:21
+:24  call void (...)* @_ssdm_op_SpecInterface(float* %mem, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i64 2147483648, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_77 (38)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:23
+:25  call void (...)* @_ssdm_op_SpecInterface(i32 %b, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_78 (39)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:24
+:26  call void (...)* @_ssdm_op_SpecInterface(i32 %od, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_79 (40)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:25
+:27  call void (...)* @_ssdm_op_SpecInterface(i32 %ox, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_80 (41)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:26
+:28  call void (...)* @_ssdm_op_SpecInterface(i32 %oy, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_81 (42)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:27
+:29  call void (...)* @_ssdm_op_SpecInterface(i32 %id, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_82 (43)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:28
+:30  call void (...)* @_ssdm_op_SpecInterface(i32 %ix, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_83 (44)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:29
+:31  call void (...)* @_ssdm_op_SpecInterface(i32 %iy, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_84 (45)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:30
+:32  call void (...)* @_ssdm_op_SpecInterface(i32 %s, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_85 (46)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:31
+:33  call void (...)* @_ssdm_op_SpecInterface(i32 %k, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_86 (47)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:32
+:34  call void (...)* @_ssdm_op_SpecInterface(i32 %input_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_87 (48)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:33
+:35  call void (...)* @_ssdm_op_SpecInterface(i32 %output_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_88 (49)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:34
+:36  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: tmp (50)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:37  %tmp = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %input_offset_read, i32 2, i32 31)
+
+ST_1: tmp_3 (51)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:38  %tmp_3 = zext i30 %tmp to i32
+
+ST_1: tmp_1 (52)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:39  %tmp_1 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %output_offset_read, i32 2, i32 31)
+
+ST_1: tmp_4 (53)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:40  %tmp_4 = zext i30 %tmp_1 to i32
+
+ST_1: StgValue_93 (54)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:43
+:41  br label %.loopexit
+
+
+ <State 2>: 3.25ns
+ST_2: b_s (56)  [1/1] 0.00ns
+.loopexit:0  %b_s = phi i31 [ 0, %0 ], [ %b_1, %.loopexit.loopexit ]
+
+ST_2: phi_mul3 (57)  [1/1] 0.00ns
+.loopexit:1  %phi_mul3 = phi i32 [ 0, %0 ], [ %next_mul4, %.loopexit.loopexit ]
+
+ST_2: phi_mul5 (58)  [1/1] 0.00ns
+.loopexit:2  %phi_mul5 = phi i32 [ 0, %0 ], [ %next_mul6, %.loopexit.loopexit ]
+
+ST_2: next_mul6 (59)  [1/1] 2.89ns
+.loopexit:3  %next_mul6 = add i32 %phi_mul5, %od_read
+
+ST_2: next_mul4 (60)  [1/1] 2.89ns
+.loopexit:4  %next_mul4 = add i32 %phi_mul3, %id_read
+
+ST_2: b_cast (61)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:43
+.loopexit:5  %b_cast = zext i31 %b_s to i32
+
+ST_2: tmp_2 (62)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:43
+.loopexit:6  %tmp_2 = icmp slt i32 %b_cast, %b_read
+
+ST_2: b_1 (63)  [1/1] 2.85ns  loc: ../maxpool_test/maxpool_layer.cpp:43
+.loopexit:7  %b_1 = add i31 %b_s, 1
+
+ST_2: StgValue_102 (64)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:43
+.loopexit:8  br i1 %tmp_2, label %.preheader2.preheader, label %8
+
+ST_2: StgValue_103 (66)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader2.preheader:0  br label %.preheader2
+
+ST_2: StgValue_104 (159)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:81
+:0  ret void
+
+
+ <State 3>: 3.25ns
+ST_3: i_d (68)  [1/1] 0.00ns
+.preheader2:0  %i_d = phi i31 [ %o_d, %.preheader2.loopexit ], [ 0, %.preheader2.preheader ]
+
+ST_3: i_d_cast (69)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader2:1  %i_d_cast = zext i31 %i_d to i32
+
+ST_3: tmp_5 (70)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader2:2  %tmp_5 = icmp slt i32 %i_d_cast, %od_read
+
+ST_3: o_d (71)  [1/1] 2.85ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader2:3  %o_d = add i31 %i_d, 1
+
+ST_3: StgValue_109 (72)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader2:4  br i1 %tmp_5, label %.preheader1.preheader, label %.loopexit.loopexit
+
+ST_3: tmp4 (74)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:0  %tmp4 = add i32 %i_d_cast, %phi_mul3
+
+ST_3: tmp9 (76)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:2  %tmp9 = add i32 %i_d_cast, %phi_mul5
+
+ST_3: StgValue_112 (157)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 4>: 2.14ns
+ST_4: tmp5 (75)  [7/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_4: tmp7 (77)  [7/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 5>: 2.14ns
+ST_5: tmp5 (75)  [6/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_5: tmp7 (77)  [6/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 6>: 2.14ns
+ST_6: tmp5 (75)  [5/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_6: tmp7 (77)  [5/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 7>: 2.14ns
+ST_7: tmp5 (75)  [4/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_7: tmp7 (77)  [4/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 8>: 2.14ns
+ST_8: tmp5 (75)  [3/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_8: tmp7 (77)  [3/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 9>: 2.14ns
+ST_9: tmp5 (75)  [2/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_9: tmp7 (77)  [2/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+
+ <State 10>: 2.14ns
+ST_10: tmp5 (75)  [1/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:1  %tmp5 = mul i32 %tmp4, %iy_read
+
+ST_10: tmp7 (77)  [1/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:46
+.preheader1.preheader:3  %tmp7 = mul i32 %tmp9, %oy_read
+
+ST_10: StgValue_127 (78)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader1.preheader:4  br label %.preheader1
+
+
+ <State 11>: 3.25ns
+ST_11: o_y (80)  [1/1] 0.00ns
+.preheader1:0  %o_y = phi i31 [ 0, %.preheader1.preheader ], [ %o_y_1, %.preheader1.loopexit ]
+
+ST_11: i_y (81)  [1/1] 0.00ns
+.preheader1:1  %i_y = phi i32 [ 0, %.preheader1.preheader ], [ %next_mul2, %.preheader1.loopexit ]
+
+ST_11: next_mul2 (82)  [1/1] 2.89ns
+.preheader1:2  %next_mul2 = add i32 %i_y, %s_read
+
+ST_11: o_y_cast (83)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader1:3  %o_y_cast = zext i31 %o_y to i32
+
+ST_11: tmp_9 (84)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader1:4  %tmp_9 = icmp slt i32 %o_y_cast, %oy_read
+
+ST_11: o_y_1 (85)  [1/1] 2.85ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader1:5  %o_y_1 = add i31 %o_y, 1
+
+ST_11: StgValue_134 (86)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader1:6  br i1 %tmp_9, label %.preheader.preheader, label %.preheader2.loopexit
+
+ST_11: tmp8 (89)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:1  %tmp8 = add i32 %o_y_cast, %tmp7
+
+ST_11: StgValue_136 (155)  [1/1] 0.00ns
+.preheader2.loopexit:0  br label %.preheader2
+
+
+ <State 12>: 2.14ns
+ST_12: tmp1 (90)  [7/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 13>: 2.14ns
+ST_13: tmp1 (90)  [6/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 14>: 2.14ns
+ST_14: tmp1 (90)  [5/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 15>: 2.14ns
+ST_15: tmp1 (90)  [4/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 16>: 2.14ns
+ST_16: tmp1 (90)  [3/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 17>: 2.14ns
+ST_17: tmp1 (90)  [2/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+
+ <State 18>: 2.89ns
+ST_18: tmp_s (88)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+.preheader.preheader:0  %tmp_s = add nsw i32 %i_y, %k_read
+
+ST_18: tmp1 (90)  [1/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:49
+.preheader.preheader:2  %tmp1 = mul i32 %tmp8, %ox_read
+
+ST_18: StgValue_145 (91)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+.preheader.preheader:3  br label %.preheader
+
+
+ <State 19>: 3.25ns
+ST_19: o_x (93)  [1/1] 0.00ns
+.preheader:0  %o_x = phi i31 [ %o_x_1, %7 ], [ 0, %.preheader.preheader ]
+
+ST_19: i_x (94)  [1/1] 0.00ns
+.preheader:1  %i_x = phi i32 [ %next_mul, %7 ], [ 0, %.preheader.preheader ]
+
+ST_19: next_mul (95)  [1/1] 2.89ns
+.preheader:2  %next_mul = add i32 %i_x, %s_read
+
+ST_19: o_x_cast (96)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+.preheader:3  %o_x_cast = zext i31 %o_x to i32
+
+ST_19: tmp_6 (97)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+.preheader:4  %tmp_6 = icmp slt i32 %o_x_cast, %ox_read
+
+ST_19: o_x_1 (98)  [1/1] 2.85ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+.preheader:5  %o_x_1 = add i31 %o_x, 1
+
+ST_19: StgValue_152 (99)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+.preheader:6  br i1 %tmp_6, label %1, label %.preheader1.loopexit
+
+ST_19: tmp_7 (101)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:0  %tmp_7 = add nsw i32 %i_x, %k_read
+
+ST_19: StgValue_154 (102)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  br label %2
+
+ST_19: StgValue_155 (153)  [1/1] 0.00ns
+.preheader1.loopexit:0  br label %.preheader1
+
+
+ <State 20>: 3.25ns
+ST_20: tmp_8 (104)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:0  %tmp_8 = phi float [ -9.000000e+03, %1 ], [ %tmp_12, %6 ]
+
+ST_20: i_y1 (105)  [1/1] 0.00ns
+:1  %i_y1 = phi i32 [ %i_y, %1 ], [ %i_y_1, %6 ]
+
+ST_20: tmp_10 (106)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:2  %tmp_10 = icmp slt i32 %i_y1, %tmp_s
+
+ST_20: StgValue_159 (107)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:3  br i1 %tmp_10, label %3, label %7
+
+ST_20: tmp3 (109)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:0  %tmp3 = add i32 %i_y1, %tmp5
+
+ST_20: tmp10 (145)  [1/1] 2.85ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:0  %tmp10 = add i32 %tmp_4, %o_x_cast
+
+
+ <State 21>: 2.14ns
+ST_21: tmp6 (110)  [7/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 22>: 2.14ns
+ST_22: tmp6 (110)  [6/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 23>: 2.14ns
+ST_23: tmp6 (110)  [5/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 24>: 2.14ns
+ST_24: tmp6 (110)  [4/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 25>: 2.14ns
+ST_25: tmp6 (110)  [3/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 26>: 2.14ns
+ST_26: tmp6 (110)  [2/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+
+ <State 27>: 2.14ns
+ST_27: tmp6 (110)  [1/7] 2.14ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  %tmp6 = mul i32 %tmp3, %ix_read
+
+ST_27: StgValue_169 (111)  [1/1] 1.61ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:2  br label %4
+
+
+ <State 28>: 3.25ns
+ST_28: tmp_12 (113)  [1/1] 0.00ns
+:0  %tmp_12 = phi float [ %tmp_8, %3 ], [ %output_element, %5 ]
+
+ST_28: i_x1 (114)  [1/1] 0.00ns
+:1  %i_x1 = phi i32 [ %i_x, %3 ], [ %i_x_1, %5 ]
+
+ST_28: tmp_13 (115)  [1/1] 3.25ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:2  %tmp_13 = icmp slt i32 %i_x1, %tmp_7
+
+ST_28: StgValue_173 (116)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:3  br i1 %tmp_13, label %5, label %6
+
+ST_28: tmp2 (118)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:0  %tmp2 = add i32 %tmp_3, %i_x1
+
+ST_28: i_x_1 (139)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:21  %i_x_1 = add nsw i32 1, %i_x1
+
+ST_28: i_y_1 (142)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:0  %i_y_1 = add nsw i32 %i_y1, 1
+
+ST_28: StgValue_177 (143)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:62
+:1  br label %2
+
+
+ <State 29>: 2.89ns
+ST_29: tmp_14 (119)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:1  %tmp_14 = add i32 %tmp2, %tmp6
+
+
+ <State 30>: 3.50ns
+ST_30: mem_addr_1 (120)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:2  %mem_addr_1 = getelementptr inbounds float* %mem, i32 %tmp_14
+
+ST_30: temp_req (121)  [7/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 31>: 3.50ns
+ST_31: temp_req (121)  [6/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 32>: 3.50ns
+ST_32: temp_req (121)  [5/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 33>: 3.50ns
+ST_33: temp_req (121)  [4/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 34>: 3.50ns
+ST_34: temp_req (121)  [3/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 35>: 3.50ns
+ST_35: temp_req (121)  [2/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 36>: 3.50ns
+ST_36: temp_req (121)  [1/7] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:3  %temp_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 37>: 3.50ns
+ST_37: temp (122)  [1/1] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:4  %temp = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr_1) nounwind
+
+
+ <State 38>: 2.64ns
+ST_38: tmp_22 (136)  [4/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69
+:18  %tmp_22 = fcmp olt float %temp, %tmp_12
+
+
+ <State 39>: 2.64ns
+ST_39: tmp_22 (136)  [3/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69
+:18  %tmp_22 = fcmp olt float %temp, %tmp_12
+
+
+ <State 40>: 2.64ns
+ST_40: tmp_22 (136)  [2/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69
+:18  %tmp_22 = fcmp olt float %temp, %tmp_12
+
+
+ <State 41>: 3.19ns
+ST_41: temp_to_int (123)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:5  %temp_to_int = bitcast float %temp to i32
+
+ST_41: tmp_15 (124)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:6  %tmp_15 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp_to_int, i32 23, i32 30)
+
+ST_41: tmp_16 (125)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:7  %tmp_16 = trunc i32 %temp_to_int to i23
+
+ST_41: tmp_13_to_int (126)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:8  %tmp_13_to_int = bitcast float %tmp_12 to i32
+
+ST_41: tmp_17 (127)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:9  %tmp_17 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %tmp_13_to_int, i32 23, i32 30)
+
+ST_41: tmp_18 (128)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:10  %tmp_18 = trunc i32 %tmp_13_to_int to i23
+
+ST_41: notlhs (129)  [1/1] 2.90ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:11  %notlhs = icmp ne i8 %tmp_15, -1
+
+ST_41: notrhs (130)  [1/1] 3.19ns  loc: ../maxpool_test/maxpool_layer.cpp:68
+:12  %notrhs = icmp eq i23 %tmp_16, 0
+
+ST_41: notlhs1 (132)  [1/1] 2.90ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:14  %notlhs1 = icmp ne i8 %tmp_17, -1
+
+ST_41: notrhs1 (133)  [1/1] 3.19ns  loc: ../maxpool_test/maxpool_layer.cpp:69
+:15  %notrhs1 = icmp eq i23 %tmp_18, 0
+
+ST_41: tmp_22 (136)  [1/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69
+:18  %tmp_22 = fcmp olt float %temp, %tmp_12
+
+
+ <State 42>: 2.07ns
+ST_42: tmp_19 (131)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68 (grouped into LUT with out node tmp_23)
+:13  %tmp_19 = or i1 %notrhs, %notlhs
+
+ST_42: tmp_20 (134)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:69 (grouped into LUT with out node tmp_23)
+:16  %tmp_20 = or i1 %notrhs1, %notlhs1
+
+ST_42: tmp_21 (135)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:68 (grouped into LUT with out node tmp_23)
+:17  %tmp_21 = and i1 %tmp_19, %tmp_20
+
+ST_42: tmp_23 (137)  [1/1] 2.07ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69 (out node of the LUT)
+:19  %tmp_23 = and i1 %tmp_21, %tmp_22
+
+
+ <State 43>: 2.07ns
+ST_43: output_element (138)  [1/1] 2.07ns  loc: ../maxpool_test/maxpool_layer.cpp:69 (out node of the LUT)
+:20  %output_element = select i1 %tmp_23, float %tmp_12, float %temp
+
+ST_43: StgValue_207 (140)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:65
+:22  br label %4
+
+
+ <State 44>: 2.89ns
+ST_44: tmp_11 (146)  [1/1] 2.89ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:1  %tmp_11 = add i32 %tmp10, %tmp1
+
+
+ <State 45>: 3.50ns
+ST_45: mem_addr (147)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:2  %mem_addr = getelementptr inbounds float* %mem, i32 %tmp_11
+
+ST_45: mem_addr_req (148)  [1/1] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:3  %mem_addr_req = call i1 @_ssdm_op_WriteReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 46>: 3.50ns
+ST_46: StgValue_211 (149)  [1/1] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:4  call void @_ssdm_op_Write.m_axi.floatP(float* %mem_addr, float %tmp_8, i4 -1) nounwind
+
+
+ <State 47>: 3.50ns
+ST_47: mem_addr_resp (150)  [5/5] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:5  %mem_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 48>: 3.50ns
+ST_48: mem_addr_resp (150)  [4/5] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:5  %mem_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 49>: 3.50ns
+ST_49: mem_addr_resp (150)  [3/5] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:5  %mem_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 50>: 3.50ns
+ST_50: mem_addr_resp (150)  [2/5] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:5  %mem_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 51>: 3.50ns
+ST_51: mem_addr_resp (150)  [1/5] 3.50ns  loc: ../maxpool_test/maxpool_layer.cpp:73
+:5  %mem_addr_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr) nounwind
+
+ST_51: StgValue_217 (151)  [1/1] 0.00ns  loc: ../maxpool_test/maxpool_layer.cpp:52
+:6  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4ns, clock uncertainty: 0.5ns.
+
+ <State 1>: 1.61ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('b_') with incoming values : ('b_', ../maxpool_test/maxpool_layer.cpp:43) [56]  (1.61 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('b_') with incoming values : ('b_', ../maxpool_test/maxpool_layer.cpp:43) [56]  (0 ns)
+	'icmp' operation ('tmp_2', ../maxpool_test/maxpool_layer.cpp:43) [62]  (3.25 ns)
+
+ <State 3>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o_d') with incoming values : ('o_d', ../maxpool_test/maxpool_layer.cpp:46) [68]  (0 ns)
+	'icmp' operation ('tmp_5', ../maxpool_test/maxpool_layer.cpp:46) [70]  (3.25 ns)
+
+ <State 4>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 5>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 6>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 7>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 8>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 9>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 10>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp5', ../maxpool_test/maxpool_layer.cpp:46) [75]  (2.14 ns)
+
+ <State 11>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o_y') with incoming values : ('o_y', ../maxpool_test/maxpool_layer.cpp:49) [80]  (0 ns)
+	'icmp' operation ('tmp_9', ../maxpool_test/maxpool_layer.cpp:49) [84]  (3.25 ns)
+
+ <State 12>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 13>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 14>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 15>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 16>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 17>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp1', ../maxpool_test/maxpool_layer.cpp:49) [90]  (2.14 ns)
+
+ <State 18>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_s', ../maxpool_test/maxpool_layer.cpp:62) [88]  (2.89 ns)
+
+ <State 19>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o_x') with incoming values : ('o_x', ../maxpool_test/maxpool_layer.cpp:52) [93]  (0 ns)
+	'icmp' operation ('tmp_6', ../maxpool_test/maxpool_layer.cpp:52) [97]  (3.25 ns)
+
+ <State 20>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_y') with incoming values : ('next_mul2') ('i_y', ../maxpool_test/maxpool_layer.cpp:62) [105]  (0 ns)
+	'icmp' operation ('tmp_10', ../maxpool_test/maxpool_layer.cpp:62) [106]  (3.25 ns)
+
+ <State 21>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 22>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 23>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 24>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 25>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 26>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 27>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('tmp6', ../maxpool_test/maxpool_layer.cpp:62) [110]  (2.14 ns)
+
+ <State 28>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i_x') with incoming values : ('next_mul') ('i_x', ../maxpool_test/maxpool_layer.cpp:65) [114]  (0 ns)
+	'icmp' operation ('tmp_13', ../maxpool_test/maxpool_layer.cpp:65) [115]  (3.25 ns)
+
+ <State 29>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_14', ../maxpool_test/maxpool_layer.cpp:68) [119]  (2.89 ns)
+
+ <State 30>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_1', ../maxpool_test/maxpool_layer.cpp:68) [120]  (0 ns)
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 31>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 32>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 33>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 34>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 35>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 36>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [121]  (3.5 ns)
+
+ <State 37>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../maxpool_test/maxpool_layer.cpp:68) [122]  (3.5 ns)
+
+ <State 38>: 2.64ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_22', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69) [136]  (2.64 ns)
+
+ <State 39>: 2.64ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_22', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69) [136]  (2.64 ns)
+
+ <State 40>: 2.64ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_22', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69) [136]  (2.64 ns)
+
+ <State 41>: 3.19ns
+The critical path consists of the following:
+	'icmp' operation ('notrhs', ../maxpool_test/maxpool_layer.cpp:68) [130]  (3.19 ns)
+
+ <State 42>: 2.07ns
+The critical path consists of the following:
+	'or' operation ('tmp_19', ../maxpool_test/maxpool_layer.cpp:68) [131]  (0 ns)
+	'and' operation ('tmp_21', ../maxpool_test/maxpool_layer.cpp:68) [135]  (0 ns)
+	'and' operation ('tmp_23', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../maxpool_test/maxpool_layer.cpp:69) [137]  (2.07 ns)
+
+ <State 43>: 2.07ns
+The critical path consists of the following:
+	'select' operation ('output_element', ../maxpool_test/maxpool_layer.cpp:69) [138]  (2.07 ns)
+
+ <State 44>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_11', ../maxpool_test/maxpool_layer.cpp:73) [146]  (2.89 ns)
+
+ <State 45>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr', ../maxpool_test/maxpool_layer.cpp:73) [147]  (0 ns)
+	bus request on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [148]  (3.5 ns)
+
+ <State 46>: 3.5ns
+The critical path consists of the following:
+	bus write on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [149]  (3.5 ns)
+
+ <State 47>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [150]  (3.5 ns)
+
+ <State 48>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [150]  (3.5 ns)
+
+ <State 49>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [150]  (3.5 ns)
+
+ <State 50>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [150]  (3.5 ns)
+
+ <State 51>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../maxpool_test/maxpool_layer.cpp:73) [150]  (3.5 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

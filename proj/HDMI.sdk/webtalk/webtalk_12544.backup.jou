@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# 
+# Start of session at: Sat Apr 13 22:39:46 2019
+# Process ID: 12544
+# Current directory: C:/Users/xujia/OneDrive/Nexys_Video_HDMI/Nexys_Video_HDMI/proj/HDMI.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/xujia/OneDrive/Nexys_Video_HDMI/Nexys_Video_HDMI/proj/HDMI.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/xujia/OneDrive/Nexys_Video_HDMI/Nexys_Video_HDMI/proj/HDMI.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

@@ -1,0 +1,1193 @@
+
+
+================================================================
+== Vivado HLS Report for 'fc_layer'
+================================================================
+* Date:           Sun Apr 14 12:52:56 2019
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        fc_proj
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a200tsbg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.00|      3.50|        0.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1         |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1      |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        |  ++ Loop 1.1.1  |    ?|    ?|        33|          -|          -|     ?|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 69
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / (tmp_3)
+9 --> 
+	10  / (tmp_7)
+	8  / (!tmp_7)
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / (tmp_5)
+	53  / (!tmp_5 & !tmp_1)
+	63  / (!tmp_5 & tmp_1)
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	20  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	9  / true
+63 --> 
+	64  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	62  / true
+* FSM state operations: 
+
+ <State 1>: 3.14ns
+ST_1: enable_relu_read (16)  [1/1] 1.00ns
+:8  %enable_relu_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %enable_relu) nounwind
+
+ST_1: num_outputs_read (17)  [1/1] 1.00ns
+:9  %num_outputs_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %num_outputs) nounwind
+
+ST_1: num_inputs_read (18)  [1/1] 1.00ns
+:10  %num_inputs_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %num_inputs) nounwind
+
+ST_1: batch_size_read (19)  [1/1] 1.00ns
+:11  %batch_size_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %batch_size) nounwind
+
+ST_1: output_offset_read (20)  [1/1] 1.00ns
+:12  %output_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %output_offset) nounwind
+
+ST_1: input_offset_read (21)  [1/1] 1.00ns
+:13  %input_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %input_offset) nounwind
+
+ST_1: num_weights (30)  [7/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+ST_1: tmp (31)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:23  %tmp = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %input_offset_read, i32 2, i32 31)
+
+ST_1: tmp_2 (34)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:54
+:26  %tmp_2 = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %output_offset_read, i32 2, i32 31)
+
+
+ <State 2>: 3.25ns
+ST_2: num_weights (30)  [6/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+ST_2: tmp_1 (33)  [1/1] 3.25ns  loc: ../fc_test/fc_layer.cpp:51
+:25  %tmp_1 = icmp eq i32 %enable_relu_read, 0
+
+
+ <State 3>: 2.14ns
+ST_3: num_weights (30)  [5/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+
+ <State 4>: 2.14ns
+ST_4: num_weights (30)  [4/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+
+ <State 5>: 2.14ns
+ST_5: num_weights (30)  [3/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+
+ <State 6>: 2.14ns
+ST_6: num_weights (30)  [2/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+
+ <State 7>: 2.89ns
+ST_7: StgValue_85 (8)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(float* %mem) nounwind, !map !13
+
+ST_7: StgValue_86 (9)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i32 %input_offset) nounwind, !map !19
+
+ST_7: StgValue_87 (10)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32 %output_offset) nounwind, !map !25
+
+ST_7: StgValue_88 (11)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i32 %batch_size) nounwind, !map !29
+
+ST_7: StgValue_89 (12)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i32 %num_inputs) nounwind, !map !33
+
+ST_7: StgValue_90 (13)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i32 %num_outputs) nounwind, !map !37
+
+ST_7: StgValue_91 (14)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i32 %enable_relu) nounwind, !map !41
+
+ST_7: StgValue_92 (15)  [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @fc_layer_str) nounwind
+
+ST_7: StgValue_93 (22)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:12
+:14  call void (...)* @_ssdm_op_SpecInterface(float* %mem, [6 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i64 2147483648, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_94 (23)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:13
+:15  call void (...)* @_ssdm_op_SpecInterface(i32 %input_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_95 (24)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:14
+:16  call void (...)* @_ssdm_op_SpecInterface(i32 %output_offset, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_96 (25)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:15
+:17  call void (...)* @_ssdm_op_SpecInterface(i32 %batch_size, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_97 (26)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:16
+:18  call void (...)* @_ssdm_op_SpecInterface(i32 %num_inputs, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_98 (27)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:17
+:19  call void (...)* @_ssdm_op_SpecInterface(i32 %num_outputs, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_99 (28)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:18
+:20  call void (...)* @_ssdm_op_SpecInterface(i32 %enable_relu, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: StgValue_100 (29)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:19
+:21  call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str3, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_7: num_weights (30)  [1/7] 2.14ns  loc: ../fc_test/fc_layer.cpp:21
+:22  %num_weights = mul nsw i32 %num_outputs_read, %num_inputs_read
+
+ST_7: tmp_s (32)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:24  %tmp_s = zext i30 %tmp to i32
+
+ST_7: tmp_4 (35)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:54
+:27  %tmp_4 = zext i30 %tmp_2 to i32
+
+ST_7: tmp2 (36)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:36
+:28  %tmp2 = add i32 %tmp_s, %num_outputs_read
+
+ST_7: StgValue_105 (37)  [1/1] 1.61ns  loc: ../fc_test/fc_layer.cpp:25
+:29  br label %.loopexit
+
+
+ <State 8>: 3.25ns
+ST_8: b (39)  [1/1] 0.00ns
+.loopexit:0  %b = phi i31 [ 0, %0 ], [ %b_1, %.loopexit.loopexit ]
+
+ST_8: phi_mul1 (40)  [1/1] 0.00ns
+.loopexit:1  %phi_mul1 = phi i32 [ 0, %0 ], [ %next_mul2, %.loopexit.loopexit ]
+
+ST_8: phi_mul3 (41)  [1/1] 0.00ns
+.loopexit:2  %phi_mul3 = phi i32 [ 0, %0 ], [ %next_mul4, %.loopexit.loopexit ]
+
+ST_8: next_mul4 (42)  [1/1] 2.89ns
+.loopexit:3  %next_mul4 = add i32 %phi_mul3, %num_outputs_read
+
+ST_8: next_mul2 (43)  [1/1] 2.89ns
+.loopexit:4  %next_mul2 = add i32 %phi_mul1, %num_inputs_read
+
+ST_8: b_cast (44)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:25
+.loopexit:5  %b_cast = zext i31 %b to i32
+
+ST_8: tmp_3 (45)  [1/1] 3.25ns  loc: ../fc_test/fc_layer.cpp:25
+.loopexit:6  %tmp_3 = icmp slt i32 %b_cast, %batch_size_read
+
+ST_8: b_1 (46)  [1/1] 2.85ns  loc: ../fc_test/fc_layer.cpp:25
+.loopexit:7  %b_1 = add i31 %b, 1
+
+ST_8: StgValue_114 (47)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:25
+.loopexit:8  br i1 %tmp_3, label %.preheader.preheader, label %8
+
+ST_8: tmp_6 (49)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:54
+.preheader.preheader:0  %tmp_6 = add i32 %phi_mul3, %tmp_4
+
+ST_8: StgValue_116 (50)  [1/1] 1.61ns  loc: ../fc_test/fc_layer.cpp:28
+.preheader.preheader:1  br label %.preheader
+
+ST_8: StgValue_117 (118)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:57
+:0  ret void
+
+
+ <State 9>: 3.25ns
+ST_9: o (52)  [1/1] 0.00ns
+.preheader:0  %o = phi i31 [ %o_1, %7 ], [ 0, %.preheader.preheader ]
+
+ST_9: phi_mul (53)  [1/1] 0.00ns
+.preheader:1  %phi_mul = phi i32 [ %next_mul, %7 ], [ 0, %.preheader.preheader ]
+
+ST_9: next_mul (54)  [1/1] 2.89ns
+.preheader:2  %next_mul = add i32 %phi_mul, %num_inputs_read
+
+ST_9: o_cast (55)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:28
+.preheader:3  %o_cast = zext i31 %o to i32
+
+ST_9: tmp_7 (56)  [1/1] 3.25ns  loc: ../fc_test/fc_layer.cpp:28
+.preheader:4  %tmp_7 = icmp slt i32 %o_cast, %num_outputs_read
+
+ST_9: o_1 (57)  [1/1] 2.85ns  loc: ../fc_test/fc_layer.cpp:28
+.preheader:5  %o_1 = add i31 %o, 1
+
+ST_9: StgValue_124 (58)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:28
+.preheader:6  br i1 %tmp_7, label %1, label %.loopexit.loopexit
+
+ST_9: tmp1 (60)  [1/1] 2.85ns  loc: ../fc_test/fc_layer.cpp:31
+:0  %tmp1 = add i32 %tmp_s, %o_cast
+
+ST_9: StgValue_126 (116)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 10>: 2.89ns
+ST_10: tmp_9 (61)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:31
+:1  %tmp_9 = add i32 %tmp1, %num_weights
+
+
+ <State 11>: 3.50ns
+ST_11: mem_addr (62)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:2  %mem_addr = getelementptr inbounds float* %mem, i32 %tmp_9
+
+ST_11: output_element_req (63)  [7/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 12>: 3.50ns
+ST_12: output_element_req (63)  [6/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 13>: 3.50ns
+ST_13: output_element_req (63)  [5/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 14>: 3.50ns
+ST_14: output_element_req (63)  [4/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 15>: 3.50ns
+ST_15: output_element_req (63)  [3/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 16>: 3.50ns
+ST_16: output_element_req (63)  [2/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 17>: 3.50ns
+ST_17: output_element_req (63)  [1/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %output_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr, i32 1) nounwind
+
+
+ <State 18>: 3.50ns
+ST_18: output_element (64)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:31
+:4  %output_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr) nounwind
+
+
+ <State 19>: 1.61ns
+ST_19: StgValue_137 (65)  [1/1] 1.61ns  loc: ../fc_test/fc_layer.cpp:34
+:5  br label %2
+
+
+ <State 20>: 3.25ns
+ST_20: tmp_8 (67)  [1/1] 0.00ns
+:0  %tmp_8 = phi float [ %output_element, %1 ], [ %output_element_1, %3 ]
+
+ST_20: i (68)  [1/1] 0.00ns
+:1  %i = phi i31 [ 0, %1 ], [ %i_1, %3 ]
+
+ST_20: i_cast (69)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:34
+:2  %i_cast = zext i31 %i to i32
+
+ST_20: tmp_5 (70)  [1/1] 3.25ns  loc: ../fc_test/fc_layer.cpp:34
+:3  %tmp_5 = icmp slt i32 %i_cast, %num_inputs_read
+
+ST_20: i_1 (71)  [1/1] 2.85ns  loc: ../fc_test/fc_layer.cpp:34
+:4  %i_1 = add i31 %i, 1
+
+ST_20: StgValue_143 (72)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:34
+:5  br i1 %tmp_5, label %3, label %4
+
+ST_20: tmp4 (74)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:36
+:0  %tmp4 = add i32 %phi_mul1, %i_cast
+
+ST_20: tmp5 (80)  [1/1] 2.85ns  loc: ../fc_test/fc_layer.cpp:38
+:6  %tmp5 = add i32 %tmp_s, %i_cast
+
+ST_20: StgValue_146 (89)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:51
+:0  br i1 %tmp_1, label %6, label %5
+
+ST_20: tmp_17 (97)  [4/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52
+:6  %tmp_17 = fcmp ogt float %tmp_8, 0.000000e+00
+
+ST_20: tmp_20 (100)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:52
+:9  %tmp_20 = add i32 %o_cast, %tmp_6
+
+ST_20: tmp_13 (107)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:54
+:0  %tmp_13 = add i32 %o_cast, %tmp_6
+
+
+ <State 21>: 2.89ns
+ST_21: tmp3 (75)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:36
+:1  %tmp3 = add i32 %tmp4, %num_weights
+
+ST_21: tmp_11 (81)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:38
+:7  %tmp_11 = add i32 %tmp5, %phi_mul
+
+
+ <State 22>: 2.89ns
+ST_22: tmp_10 (76)  [1/1] 2.89ns  loc: ../fc_test/fc_layer.cpp:36
+:2  %tmp_10 = add i32 %tmp3, %tmp2
+
+
+ <State 23>: 3.50ns
+ST_23: mem_addr_1 (77)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:36
+:3  %mem_addr_1 = getelementptr inbounds float* %mem, i32 %tmp_10
+
+ST_23: input_element_req (78)  [7/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+
+ <State 24>: 3.50ns
+ST_24: input_element_req (78)  [6/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_24: mem_addr_2 (82)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:38
+:8  %mem_addr_2 = getelementptr inbounds float* %mem, i32 %tmp_11
+
+ST_24: weight_element_req (83)  [7/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 25>: 3.50ns
+ST_25: input_element_req (78)  [5/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_25: weight_element_req (83)  [6/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 26>: 3.50ns
+ST_26: input_element_req (78)  [4/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_26: weight_element_req (83)  [5/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 27>: 3.50ns
+ST_27: input_element_req (78)  [3/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_27: weight_element_req (83)  [4/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 28>: 3.50ns
+ST_28: input_element_req (78)  [2/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_28: weight_element_req (83)  [3/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 29>: 3.50ns
+ST_29: input_element_req (78)  [1/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:4  %input_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_1, i32 1) nounwind
+
+ST_29: weight_element_req (83)  [2/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 30>: 3.50ns
+ST_30: input_element (79)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:36
+:5  %input_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr_1) nounwind
+
+ST_30: weight_element_req (83)  [1/7] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:9  %weight_element_req = call i1 @_ssdm_op_ReadReq.m_axi.floatP(float* %mem_addr_2, i32 1) nounwind
+
+
+ <State 31>: 3.50ns
+ST_31: weight_element (84)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:38
+:10  %weight_element = call float @_ssdm_op_Read.m_axi.floatP(float* %mem_addr_2) nounwind
+
+
+ <State 32>: 2.65ns
+ST_32: tmp_12 (85)  [8/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 33>: 2.65ns
+ST_33: tmp_12 (85)  [7/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 34>: 2.65ns
+ST_34: tmp_12 (85)  [6/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 35>: 2.65ns
+ST_35: tmp_12 (85)  [5/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 36>: 2.65ns
+ST_36: tmp_12 (85)  [4/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 37>: 2.65ns
+ST_37: tmp_12 (85)  [3/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 38>: 2.65ns
+ST_38: tmp_12 (85)  [2/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 39>: 2.65ns
+ST_39: tmp_12 (85)  [1/8] 2.65ns  loc: ../fc_test/fc_layer.cpp:40
+:11  %tmp_12 = fmul float %input_element, %weight_element
+
+
+ <State 40>: 3.30ns
+ST_40: output_element_1 (86)  [13/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 41>: 3.30ns
+ST_41: output_element_1 (86)  [12/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 42>: 3.30ns
+ST_42: output_element_1 (86)  [11/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 43>: 3.30ns
+ST_43: output_element_1 (86)  [10/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 44>: 3.30ns
+ST_44: output_element_1 (86)  [9/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 45>: 3.30ns
+ST_45: output_element_1 (86)  [8/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 46>: 3.30ns
+ST_46: output_element_1 (86)  [7/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 47>: 3.30ns
+ST_47: output_element_1 (86)  [6/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 48>: 3.30ns
+ST_48: output_element_1 (86)  [5/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 49>: 3.30ns
+ST_49: output_element_1 (86)  [4/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 50>: 3.30ns
+ST_50: output_element_1 (86)  [3/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 51>: 3.30ns
+ST_51: output_element_1 (86)  [2/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+
+ <State 52>: 3.30ns
+ST_52: output_element_1 (86)  [1/13] 3.30ns  loc: ../fc_test/fc_layer.cpp:40
+:12  %output_element_1 = fadd float %tmp_8, %tmp_12
+
+ST_52: StgValue_192 (87)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:34
+:13  br label %2
+
+
+ <State 53>: 2.64ns
+ST_53: tmp_17 (97)  [3/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52
+:6  %tmp_17 = fcmp ogt float %tmp_8, 0.000000e+00
+
+
+ <State 54>: 2.64ns
+ST_54: tmp_17 (97)  [2/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52
+:6  %tmp_17 = fcmp ogt float %tmp_8, 0.000000e+00
+
+
+ <State 55>: 3.19ns
+ST_55: tmp_10_to_int (91)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:0  %tmp_10_to_int = bitcast float %tmp_8 to i32
+
+ST_55: tmp_14 (92)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:1  %tmp_14 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %tmp_10_to_int, i32 23, i32 30)
+
+ST_55: tmp_15 (93)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31
+:2  %tmp_15 = trunc i32 %tmp_10_to_int to i23
+
+ST_55: notlhs (94)  [1/1] 2.90ns  loc: ../fc_test/fc_layer.cpp:31
+:3  %notlhs = icmp ne i8 %tmp_14, -1
+
+ST_55: notrhs (95)  [1/1] 3.19ns  loc: ../fc_test/fc_layer.cpp:31
+:4  %notrhs = icmp eq i23 %tmp_15, 0
+
+ST_55: tmp_17 (97)  [1/4] 2.64ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52
+:6  %tmp_17 = fcmp ogt float %tmp_8, 0.000000e+00
+
+
+ <State 56>: 3.50ns
+ST_56: tmp_16 (96)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:31 (grouped into LUT with out node tmp_19)
+:5  %tmp_16 = or i1 %notrhs, %notlhs
+
+ST_56: tmp_18 (98)  [1/1] 0.00ns  loc: C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52 (grouped into LUT with out node tmp_19)
+:7  %tmp_18 = and i1 %tmp_16, %tmp_17
+
+ST_56: tmp_19 (99)  [1/1] 2.07ns  loc: ../fc_test/fc_layer.cpp:52 (out node of the LUT)
+:8  %tmp_19 = select i1 %tmp_18, float %tmp_8, float 0.000000e+00
+
+ST_56: mem_addr_4 (101)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:52
+:10  %mem_addr_4 = getelementptr inbounds float* %mem, i32 %tmp_20
+
+ST_56: mem_addr_4_req (102)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:11  %mem_addr_4_req = call i1 @_ssdm_op_WriteReq.m_axi.floatP(float* %mem_addr_4, i32 1) nounwind
+
+
+ <State 57>: 3.50ns
+ST_57: StgValue_206 (103)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:12  call void @_ssdm_op_Write.m_axi.floatP(float* %mem_addr_4, float %tmp_19, i4 -1) nounwind
+
+
+ <State 58>: 3.50ns
+ST_58: mem_addr_4_resp (104)  [5/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:13  %mem_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_4) nounwind
+
+
+ <State 59>: 3.50ns
+ST_59: mem_addr_4_resp (104)  [4/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:13  %mem_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_4) nounwind
+
+
+ <State 60>: 3.50ns
+ST_60: mem_addr_4_resp (104)  [3/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:13  %mem_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_4) nounwind
+
+
+ <State 61>: 3.50ns
+ST_61: mem_addr_4_resp (104)  [2/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:13  %mem_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_4) nounwind
+
+
+ <State 62>: 3.50ns
+ST_62: mem_addr_4_resp (104)  [1/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:52
+:13  %mem_addr_4_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_4) nounwind
+
+ST_62: StgValue_212 (105)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:52
+:14  br label %7
+
+ST_62: StgValue_213 (114)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:28
+:0  br label %.preheader
+
+
+ <State 63>: 3.50ns
+ST_63: mem_addr_3 (108)  [1/1] 0.00ns  loc: ../fc_test/fc_layer.cpp:54
+:1  %mem_addr_3 = getelementptr inbounds float* %mem, i32 %tmp_13
+
+ST_63: mem_addr_3_req (109)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:2  %mem_addr_3_req = call i1 @_ssdm_op_WriteReq.m_axi.floatP(float* %mem_addr_3, i32 1) nounwind
+
+
+ <State 64>: 3.50ns
+ST_64: StgValue_216 (110)  [1/1] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:3  call void @_ssdm_op_Write.m_axi.floatP(float* %mem_addr_3, float %tmp_8, i4 -1) nounwind
+
+
+ <State 65>: 3.50ns
+ST_65: mem_addr_3_resp (111)  [5/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:4  %mem_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_3) nounwind
+
+
+ <State 66>: 3.50ns
+ST_66: mem_addr_3_resp (111)  [4/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:4  %mem_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_3) nounwind
+
+
+ <State 67>: 3.50ns
+ST_67: mem_addr_3_resp (111)  [3/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:4  %mem_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_3) nounwind
+
+
+ <State 68>: 3.50ns
+ST_68: mem_addr_3_resp (111)  [2/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:4  %mem_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_3) nounwind
+
+
+ <State 69>: 3.50ns
+ST_69: mem_addr_3_resp (111)  [1/5] 3.50ns  loc: ../fc_test/fc_layer.cpp:54
+:4  %mem_addr_3_resp = call i1 @_ssdm_op_WriteResp.m_axi.floatP(float* %mem_addr_3) nounwind
+
+ST_69: StgValue_222 (112)  [1/1] 0.00ns
+:5  br label %7
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4ns, clock uncertainty: 0.5ns.
+
+ <State 1>: 3.14ns
+The critical path consists of the following:
+	s_axi read on port 'num_outputs' [17]  (1 ns)
+	'mul' operation ('num_weights', ../fc_test/fc_layer.cpp:21) [30]  (2.14 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_1', ../fc_test/fc_layer.cpp:51) [33]  (3.25 ns)
+
+ <State 3>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../fc_test/fc_layer.cpp:21) [30]  (2.14 ns)
+
+ <State 4>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../fc_test/fc_layer.cpp:21) [30]  (2.14 ns)
+
+ <State 5>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../fc_test/fc_layer.cpp:21) [30]  (2.14 ns)
+
+ <State 6>: 2.14ns
+The critical path consists of the following:
+	'mul' operation ('num_weights', ../fc_test/fc_layer.cpp:21) [30]  (2.14 ns)
+
+ <State 7>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp2', ../fc_test/fc_layer.cpp:36) [36]  (2.89 ns)
+
+ <State 8>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('b') with incoming values : ('b', ../fc_test/fc_layer.cpp:25) [39]  (0 ns)
+	'icmp' operation ('tmp_3', ../fc_test/fc_layer.cpp:25) [45]  (3.25 ns)
+
+ <State 9>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('o') with incoming values : ('o', ../fc_test/fc_layer.cpp:28) [52]  (0 ns)
+	'icmp' operation ('tmp_7', ../fc_test/fc_layer.cpp:28) [56]  (3.25 ns)
+
+ <State 10>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_9', ../fc_test/fc_layer.cpp:31) [61]  (2.89 ns)
+
+ <State 11>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr', ../fc_test/fc_layer.cpp:31) [62]  (0 ns)
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 12>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 13>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 14>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 15>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 16>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 17>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:31) [63]  (3.5 ns)
+
+ <State 18>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../fc_test/fc_layer.cpp:31) [64]  (3.5 ns)
+
+ <State 19>: 1.61ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('output_element') with incoming values : ('output_element', ../fc_test/fc_layer.cpp:31) ('output_element', ../fc_test/fc_layer.cpp:40) [67]  (1.61 ns)
+
+ <State 20>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../fc_test/fc_layer.cpp:34) [68]  (0 ns)
+	'icmp' operation ('tmp_5', ../fc_test/fc_layer.cpp:34) [70]  (3.25 ns)
+
+ <State 21>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp3', ../fc_test/fc_layer.cpp:36) [75]  (2.89 ns)
+
+ <State 22>: 2.89ns
+The critical path consists of the following:
+	'add' operation ('tmp_10', ../fc_test/fc_layer.cpp:36) [76]  (2.89 ns)
+
+ <State 23>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_1', ../fc_test/fc_layer.cpp:36) [77]  (0 ns)
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 24>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 25>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 26>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 27>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 28>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 29>: 3.5ns
+The critical path consists of the following:
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:36) [78]  (3.5 ns)
+
+ <State 30>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../fc_test/fc_layer.cpp:36) [79]  (3.5 ns)
+
+ <State 31>: 3.5ns
+The critical path consists of the following:
+	bus read on port 'mem' (../fc_test/fc_layer.cpp:38) [84]  (3.5 ns)
+
+ <State 32>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 33>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 34>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 35>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 36>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 37>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 38>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 39>: 2.65ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_12', ../fc_test/fc_layer.cpp:40) [85]  (2.65 ns)
+
+ <State 40>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 41>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 42>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 43>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 44>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 45>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 46>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 47>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 48>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 49>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 50>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 51>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 52>: 3.3ns
+The critical path consists of the following:
+	'fadd' operation ('output_element', ../fc_test/fc_layer.cpp:40) [86]  (3.3 ns)
+
+ <State 53>: 2.64ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_17', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52) [97]  (2.64 ns)
+
+ <State 54>: 2.64ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_17', C:/Xilinx/Vivado_HLS/2017.2/win64/tools/clang/bin\..\lib\clang\3.1/../../../include/c++/4.5.2\bits/stl_algobase.h:214->../fc_test/fc_layer.cpp:52) [97]  (2.64 ns)
+
+ <State 55>: 3.19ns
+The critical path consists of the following:
+	'icmp' operation ('notrhs', ../fc_test/fc_layer.cpp:31) [95]  (3.19 ns)
+
+ <State 56>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_4', ../fc_test/fc_layer.cpp:52) [101]  (0 ns)
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:52) [102]  (3.5 ns)
+
+ <State 57>: 3.5ns
+The critical path consists of the following:
+	bus write on port 'mem' (../fc_test/fc_layer.cpp:52) [103]  (3.5 ns)
+
+ <State 58>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:52) [104]  (3.5 ns)
+
+ <State 59>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:52) [104]  (3.5 ns)
+
+ <State 60>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:52) [104]  (3.5 ns)
+
+ <State 61>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:52) [104]  (3.5 ns)
+
+ <State 62>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:52) [104]  (3.5 ns)
+
+ <State 63>: 3.5ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_addr_3', ../fc_test/fc_layer.cpp:54) [108]  (0 ns)
+	bus request on port 'mem' (../fc_test/fc_layer.cpp:54) [109]  (3.5 ns)
+
+ <State 64>: 3.5ns
+The critical path consists of the following:
+	bus write on port 'mem' (../fc_test/fc_layer.cpp:54) [110]  (3.5 ns)
+
+ <State 65>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:54) [111]  (3.5 ns)
+
+ <State 66>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:54) [111]  (3.5 ns)
+
+ <State 67>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:54) [111]  (3.5 ns)
+
+ <State 68>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:54) [111]  (3.5 ns)
+
+ <State 69>: 3.5ns
+The critical path consists of the following:
+	bus access on port 'mem' (../fc_test/fc_layer.cpp:54) [111]  (3.5 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

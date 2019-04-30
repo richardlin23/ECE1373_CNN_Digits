@@ -1,0 +1,5 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+CRITICAL WARNING: [SIM 104] Cannot find C test bench. Please specify test bench files using 'add_files -tb'.
+CRITICAL WARNING: [SIM 100] CSim failed with errors.
+INFO: [SIM 3] *************** CSIM finish ***************
