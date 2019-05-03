@@ -1,0 +1,1 @@
+./opt/caffe/build/tools/compute_image_mean home/zhangyi/MNIST/examples/mnist_train_lmdb home/zhangyi/MNIST/examples/lenet_mean.binaryproto
